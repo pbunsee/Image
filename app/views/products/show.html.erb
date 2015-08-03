@@ -1,0 +1,15 @@
+
+<%= form_tag(@product) do %>
+  <h1>Show Product Details</h1>
+    <%= label_tag :name %>
+    <%= form_field_tag :name %>
+    <%= label_tag :price %>
+    <%= form_field_tag :price %>
+    <%= label_tag :active %>
+    <%= form_field_tag :active %>
+
+ <%= link_to "Add to Cart", order_items_path, method: :post %> <br>
+
+<% end %>
+
+
