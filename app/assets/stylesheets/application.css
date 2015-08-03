@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+header {
+  margin-bottom: 0;
+}
+
+#flash_notice {
+  margin-top: 0;
+}

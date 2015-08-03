@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>IMAGE</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Rails Login with Bootstrap</title>
 
-<%= yield %>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-</body>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap 3 is designed to be responsive to mobile devices. Mobile-first styles are part of the core framework.
+
+    To ensure proper rendering and touch zooming, add the following <meta> tag inside the <head> element -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+         <div class="navbar-header">
+           <a class="navbar-brand" href="#">Rails Devise Bootstrap Website</a>
+          </div>
+          <div>
+            <ul class="nav navbar-nav">
+              <li> <%= link_to 'Sign In', user_session_path %> </li>
+              <li>  <%= link_to 'Sign Up', new_user_registration_path %> </li>
+              <li> <%= link_to 'Edit Profile', edit_user_registration_path %>
+              <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div id = "flash notice">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+
+    <%= yield %>
+
+  </body>           
 </html>
