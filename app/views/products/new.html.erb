@@ -1,0 +1,25 @@
+<div class="input-form">
+  <% if @product.errors.any? %>
+    <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li> <%= msg %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for @product, url: new_product_path, html: {method: :get} do |f| %>
+    <h2>Add Product</h2>
+    <div class="form-group">
+      <%= f.label 'Product Name' %>
+      <%= f.text_field :name, placeholder: 'Product Name' %><br>
+      <%= f.label 'Price' %>
+      <%= f.text_field :price, placeholder: 'Price' %><br>
+      <%= f.label 'Active' %>
+      <%= f.text_field :active, placeholder: 'Active' %><br>
+    </div>
+    <div class="buttons_div">
+       <%= f.submit :Create %>
+     </div>
+  <% end %>
+
+</div>
