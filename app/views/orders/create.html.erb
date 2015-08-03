@@ -1,0 +1,16 @@
+<%= form_for(@order, method: :create, :html => {:id => 'create_order', :class => 'create_order'}) do |f| %>
+  <h1>Create new order</h1>
+  <%= f.text_field :subtotal, { placeholder: "Sub-Total"} %> <br>
+  <%= f.label :subtotal %><br>
+  <%= f.text_field :tax, { placeholder: "Tax"} %> <br>
+  <%= f.label :tax %><br>
+  <%= f.text_field :shipping, { placeholder: "Shipping"} %> <br>
+  <%= f.label :shipping %><br>
+  <%= f.text_field :total, { placeholder: "Total"} %> <br>
+  <%= f.label :total %><br>
+  <%= f.text_field :total, { placeholder: "Total"} %> <br>
+  <div class="buttons_div">
+    <%= f.submit :Create %>
+  </div>
+<% end %>
+
