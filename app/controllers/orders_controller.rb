@@ -1,9 +1,18 @@
 class OrdersController < ApplicationController
 
-  def show
+  def index
     @orders = Order.all
     if @orders == nil
       flash[:alert] = "No orders found"
+    end
+    puts "@orders.inspect #{@orders.inspect}"
+  end
+
+  def show
+    if current_order
+      @order = Order.find current_order
+    else
+      flash[:alert] = "Order not found"
     end
   end
 
