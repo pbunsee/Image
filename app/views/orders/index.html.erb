@@ -1,0 +1,12 @@
+ <h1>List of all orders</h1>
+
+ <div id="order">
+   <% if @orders %>
+     <% @orders.each do |order| %>
+       <%= "Order ID: #{order.id}" %>
+       <%= "Order Date: #{order.date}" %>
+
+        <!--render order_items -->
+     <% end %>
+   <% end %>
+ </div>
