@@ -1,0 +1,18 @@
+<%= form_tag(@order, method: :get, :html => {:id => 'show_order', :class => 'show_order'}) do |f| %>
+  <h1>Show order</h1>
+   <p> TO BE COMPLETED:  list all the order items here - need the order_item index partial here</p>
+  <%= label_tag :subtotal %><br>
+  <%= text_field_tag :subtotal, nil, { placeholder: "Sub-Total"} %> <br>
+  <%= label_tag :tax %><br>
+  <%= text_field_tag :tax, nil, { placeholder: "Tax"} %> <br>
+  <%= label_tag :shipping %><br>
+  <%= text_field_tag :shipping, nil, { placeholder: "Shipping"} %> <br>
+  <%= label_tag :total %><br>
+  <%= text_field_tag :total, nil, { placeholder: "Total"} %> <br>
+  <div class="buttons_div">
+    <p> figure out what to do with the button - cancel order? </p>
+    <!-- f.submit :Create -->
+  </div>
+<% end %>
+
+

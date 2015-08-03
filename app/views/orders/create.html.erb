@@ -1,12 +1,12 @@
-<%= form_for(@order, method: :create, :html => {:id => 'create_order', :class => 'create_order'}) do |f| %>
+<%= form_for(@order, method: :post, :html => {:id => 'create_order', :class => 'create_order'}) do |f| %>
   <h1>Create new order</h1>
-  <%= f.text_field :subtotal, { placeholder: "Sub-Total"} %> <br>
+   <p> TO BE COMPLETED:  list all the order items here - need the order_item index partial here</p>
   <%= f.label :subtotal %><br>
-  <%= f.text_field :tax, { placeholder: "Tax"} %> <br>
+  <%= f.text_field :subtotal, { placeholder: "Sub-Total"} %> <br>
   <%= f.label :tax %><br>
-  <%= f.text_field :shipping, { placeholder: "Shipping"} %> <br>
+  <%= f.text_field :tax, { placeholder: "Tax"} %> <br>
   <%= f.label :shipping %><br>
-  <%= f.text_field :total, { placeholder: "Total"} %> <br>
+  <%= f.text_field :shipping, { placeholder: "Shipping"} %> <br>
   <%= f.label :total %><br>
   <%= f.text_field :total, { placeholder: "Total"} %> <br>
   <div class="buttons_div">

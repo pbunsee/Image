@@ -3,10 +3,21 @@
  <div id="order">
    <% if @orders %>
      <% @orders.each do |order| %>
-       <%= "Order ID: #{order.id}" %>
-       <%= "Order Date: #{order.date}" %>
+       <table id="order-#{order.id}">
+           Order ID
+           Sub-total
+           Tax
+           Shipping
+           Total
+           Status
+             <%= "Order ID: #{order.id}" %>
+             <%= "Sub-total: #{order.subtotal}" %>
+             <%= "Tax: #{order.tax}" %>
+             <%= "Shipping: #{order.shipping}" %>
+             <%= "Order Date: #{order.created_at}" %>
 
-        <!--render order_items -->
+          <!--render order_items -->
      <% end %>
    <% end %>
  </div>
+
