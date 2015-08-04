@@ -1,0 +1,33 @@
+<div class="input-form">
+  <% if @product.errors.any? %>
+    <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li> <%= msg %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for @product, url: product_path, html: {method: :patch, multipart: true } do |f| %>
+    <h2>Edit Product</h2>
+    <div class="form-group">
+      <%= f.label 'Image' %>
+      <%= f.file_field :image %><br>
+      <%= f.label 'Product Name' %>
+      <%= f.text_field :name, placeholder: 'Product Name' %><br>
+      <%= f.label 'Price' %>
+      <%= f.text_field :price, placeholder: 'Price' %><br>
+      <%= f.label 'Size' %>
+      <%= f.text_field :size, placeholder: 'Size' %><br>
+      <%= f.label 'Brand' %>
+      <%= f.text_field :brand, placeholder: 'Brand' %><br>
+      <%= f.label 'Description' %>
+      <%= f.text_field :description, placeholder: 'Description' %><br>
+    </div>
+    <div class="buttons_div">
+       <%= f.submit :Edit %>
+     </div>
+  <% end %>
+
+</div>
+
+
