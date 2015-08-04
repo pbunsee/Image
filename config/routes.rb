@@ -4,7 +4,14 @@ Rails.application.routes.draw do
   resource :cart, only: [:show]
   resources :orders, :except => :edit
   resources :order_items, only: [:create, :update, :destroy]
-  root to: "products#index"
+  root to: "pages#home"
+
+  get 'pages/home'
+
+  get 'pages/about'
+
+  get 'pages/contact'
+
   get 'order_items/create'
 
   get 'order_items/updatedestroy'

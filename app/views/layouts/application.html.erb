@@ -11,8 +11,9 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Custom stylesheet to override Bootstrap styling -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css">
 
     <!-- Bootstrap 3 is designed to be responsive to mobile devices. Mobile-first styles are part of the core framework.
 
@@ -27,18 +28,26 @@
   </head>
 
   <body>
+
+    <div class="container">
+
     <header>
-      <nav class="navbar navbar-inverse">
+      <nav class="navbar navbar-inverse navbar-custom">
         <div class="container-fluid">
          <div class="navbar-header">
-           <a class="navbar-brand" href="#">Rails Devise Bootstrap Website</a>
+           <a class="navbar-brand" href="#">Sneaker Store   |</a>
           </div>
           <div>
             <ul class="nav navbar-nav">
-              <li> <%= link_to 'Sign In', user_session_path %> </li>
+              <li> <%= link_to 'Home', root_path %> </li>
+              <li> <%= link_to 'Products', products_index_path %> </li>
+              <li> <%= link_to 'About', pages_about_path %> </li>
+              <li> <%= link_to 'Contact', pages_contact_path %> </li>
+              <li> <%= link_to 'Cart',  root_path %> </li>
+<!--          <li> <%= link_to 'Sign In', user_session_path %> </li>
               <li>  <%= link_to 'Sign Up', new_user_registration_path %> </li>
               <li> <%= link_to 'Edit Profile', edit_user_registration_path %>
-              <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
+              <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li> -->
             </ul>
           </div>
         </div>
@@ -51,6 +60,11 @@
     </div>
 
     <%= yield %>
+
+  </div> <!-- end of container div -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   </body>           
 </html>
