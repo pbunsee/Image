@@ -1,0 +1,111 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.logo {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.carousel-inner > .item > img {
+  margin: 0 auto;
+}
+
+#welcome-header {
+  height: 100px;
+  background-color: #FF6262;
+  border-radius: 0 0 10px 10px;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+.welcomegrid1 {
+  height: 300px;
+  padding: 10%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 300px;
+  color: white;
+  background-color: lightblue;
+  border-radius: 10px;
+}
+
+.welcomegrid2 {
+  height: 300px;
+  padding: 10%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 300px;
+  color: white;
+  background-color: lightblue;
+  border-radius: 10px;
+}
+
+.welcomepic1 {
+  height: 300px;
+  margin: 0 auto;
+  text-align: center;
+  background-image: url('/assets/1998-air-max-95.jpg');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.welcomepic2 {
+  height: 300px;
+  margin: 30px;
+  text-align: center;
+  background-image: url('/assets/air-jordan-13-retro-2004-bred.jpg');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+  .welcomepic3 {
+  height: 300px;
+  margin: 30px;
+  text-align: center;
+  background-image: url('/assets/air-jordan-6-retro-infrared-23.jpg');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.welcomepic4 {
+  height: 300px;
+  margin: 30px;
+  text-align: center;
+  background-image: url('/assets/ewing-33-hi.jpg');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.welcomepic5 {
+  height: 300px;
+  margin: 30px;
+  text-align: center;
+  background-image: url('/assets/reebok-reignman-1.jpg');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.welcomepic6 {
+  height: 300px;
+  margin: 30px;
+  text-align: center;
+  background-image: url('/assets/staple-pigeon-mns-cn-staple-pigeon.jpg');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
