@@ -7,8 +7,7 @@
     </ul>
   <% end %>
 
-
-  <%= form_for @product, url: products_path, html: {method: :post}, html: { multipart: true } do |f| %>
+  <%= form_for @product, url: products_path, html: {method: :post, multipart: true } do |f| %>
     <h2>Add Product</h2>
     <div class="form-group">
       <%= f.label 'Image' %>

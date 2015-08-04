@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(version: 20150804173401) do
 
   create_table "inventories_tables", force: :cascade do |t|
-    t.integer "product_id"
+    t.integer "products_id"
     t.integer "count_on_hand", default: 0
   end
 
-  add_index "inventories_tables", ["product_id"], name: "index_inventories_tables_on_product_id"
+  add_index "inventories_tables", ["products_id"], name: "index_inventories_tables_on_products_id"
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
@@ -56,13 +56,13 @@ ActiveRecord::Schema.define(version: 20150804173401) do
     t.decimal  "price",              precision: 12, scale: 3
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.string   "size"
+    t.string   "description"
+    t.string   "brand"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "size"
-    t.string   "description"
-    t.string   "brand"
   end
 
   create_table "users", force: :cascade do |t|
