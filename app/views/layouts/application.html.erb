@@ -25,15 +25,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
     <%= csrf_meta_tags %>
-
   </head>
-
   <body>
-
     <div class="container">
-
     <header>
       <nav class="navbar navbar-inverse navbar-custom">
         <div class="container-fluid">
@@ -46,7 +41,7 @@
               <li> <%= link_to 'Products', products_path %> </li>
               <li> <%= link_to 'About', pages_about_path %> </li>
               <li> <%= link_to 'Contact', pages_contact_path %> </li>
-              <li> <%= link_to 'Cart',  carts_path %> </li>
+              <li> <%= link_to 'Cart',  cart_path %> </li>
 <!--          <li> <%= link_to 'Sign In', user_session_path %> </li>
               <li>  <%= link_to 'Sign Up', new_user_registration_path %> </li>
               <li> <%= link_to 'Edit Profile', edit_user_registration_path %>
@@ -57,16 +52,20 @@
       </nav>
     </header>
 
-<!--     <div id = "flash notice">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div> -->
-
+   <div class="flash">
+      <% if flash[:notice] %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      
+      <% if flash[:alert] %>
+        <div class="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
-
   </div> <!-- end of container div -->
-
-
-
   </body>           
 </html>
