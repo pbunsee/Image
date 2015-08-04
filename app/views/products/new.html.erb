@@ -7,15 +7,19 @@
     </ul>
   <% end %>
 
-  <%= form_for @product, url: new_product_path, html: {method: :get} do |f| %>
+  <%= form_for @product, url: products_path, html: {method: :post} do |f| %>
     <h2>Add Product</h2>
     <div class="form-group">
       <%= f.label 'Product Name' %>
       <%= f.text_field :name, placeholder: 'Product Name' %><br>
       <%= f.label 'Price' %>
       <%= f.text_field :price, placeholder: 'Price' %><br>
-      <%= f.label 'Active' %>
-      <%= f.text_field :active, placeholder: 'Active' %><br>
+      <%= f.label 'Size' %>
+      <%= f.text_field :size, placeholder: 'Size' %><br>
+      <%= f.label 'Brand' %>
+      <%= f.text_field :brand, placeholder: 'Brand' %><br>
+      <%= f.label 'Description' %>
+      <%= f.text_field :description, placeholder: 'Description' %><br>
     </div>
     <div class="buttons_div">
        <%= f.submit :Create %>
@@ -23,3 +27,5 @@
   <% end %>
 
 </div>
+
+
