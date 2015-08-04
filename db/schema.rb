@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150804173401) do
+
+  create_table "inventories_tables", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "count_on_hand", default: 0
+  end
+
+  add_index "inventories_tables", ["product_id"], name: "index_inventories_tables_on_product_id"
+=======
 ActiveRecord::Schema.define(version: 20150804152556) do
+>>>>>>> bb9e5edd15096b941b1493369939a7047c3a271d
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
