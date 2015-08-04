@@ -1,22 +1,14 @@
  <h1>List of all orders</h1>
 
- <div id="order">
+ <div id="list-orders">
    <% if @orders %>
      <% @orders.each do |order| %>
        <table id="order-#{order.id}">
-           Order ID
-           Sub-total
-           Tax
-           Shipping
-           Total
-           Status
-             <%= "Order ID: #{order.id}" %>
-             <%= "Sub-total: #{order.subtotal}" %>
-             <%= "Tax: #{order.tax}" %>
-             <%= "Shipping: #{order.shipping}" %>
-             <%= "Order Date: #{order.created_at}" %>
-
-          <!--render order_items -->
+          <%= "Order ID: #{order.id}" %>
+          <%= "Sub-total: #{order.subtotal}" %>
+          <%= "Tax: #{order.tax}" %>
+          <%= "Shipping: #{order.shipping}" %>
+          <%= "Order Date: #{order.created_at}" %>
      <% end %>
    <% end %>
  </div>
