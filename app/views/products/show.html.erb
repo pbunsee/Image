@@ -9,7 +9,7 @@
 
   <% if @product %>
 
-    <%= form_tag(@product) do %>
+    <%= form_for(@product, html: { method: :get } ) do |f| %>
 
       <div class="form-group">
         <span class="col-md-12 text-center">
@@ -18,26 +18,42 @@
       </div>
       <div class="form-group">
         <span class="control-label text-left col-md-4">
-          <%= label_tag :name, 'Product Name' %>
+          <%= f.label :name, 'Product Name' %>
         </span>
-        <span class="text-left col-md-4">
-          <%= form_field_tag :name %>
-        </span>
-      </div>
-      <div class="form-group">
-        <span class="control-label text-left col-md-4">
-          <%= label_tag :price %>
-        </span>
-        <span class="text-right col-md-8">
-          <%= form_field_tag :price %>
+        <span class="text-left col-md-8">
+          <%= f.text_field :name %>
         </span>
       </div>
       <div class="form-group">
         <span class="control-label text-left col-md-4">
-          <%= label_tag :active %>
+          <%= f.label :price %>
         </span>
-        <span class="text-right col-md-8">
-          <%= form_field_tag :active %>
+        <span class="text-left col-md-8">
+          <%= f.text_field :price %>
+        </span>
+      </div>
+      <div class="form-group">
+        <span class="control-label text-left col-md-4">
+          <%= f.label :size %>
+        </span>
+        <span class="text-left col-md-8">
+          <%= f.text_field :size %>
+        </span>
+      </div>
+      <div class="form-group">
+        <span class="control-label text-left col-md-4">
+          <%= f.label :brand %>
+        </span>
+        <span class="text-left col-md-8">
+          <%= f.text_field :brand %>
+        </span>
+      </div>
+      <div class="form-group">
+        <span class="control-label text-left col-md-4">
+          <%= f.label :description %>
+        </span>
+        <span class="text-left col-md-8">
+          <%= f.text_field :description %>
         </span>
       </div>
       <div class="form-group">
