@@ -32,7 +32,14 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find params[:id]
     @product.update product_params
-    redirect_to edit_product_path
+    redirect_to products_path
+  end
+
+  def destroy
+    @product = Product.find params[:id]
+    @product.destroy
+    redirect_to products_path
+    flash[:notice] = "Selected product has been deleted"
   end
 
   private
@@ -49,6 +56,14 @@ class ProductsController < ApplicationController
     def record_not_found
       flash[:alert] = "Product #{params[:id]} not found"
       redirect_to products_path
+    end
+
+    before_filter :check_for_cancel, :only => [:create, :update]
+
+    def check_for_cancel
+      if params[:cancel] == "Cancel"
+        redirect_to products_path
+      end
     end
 
 end
