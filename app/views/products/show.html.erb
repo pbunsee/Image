@@ -16,15 +16,28 @@
           <h1>Show Product Details</h1>
         </span>
       </div>
-      <div class="form-group">
+
+
+      <div class="forg-group">
+        <span class="col-md-5">
+          <%= image_tag @product.image_file_name %>
+        </span>
+
+        <span class="col-md-7">
+
+           <div class="form-group">
         <span class="control-label text-left col-md-4">
           <%= f.label :name, 'Product Name' %>
         </span>
+
         <span class="text-left col-md-8">
           <%= f.text_field :name %>
         </span>
+
       </div>
+
       <div class="form-group">
+
         <span class="control-label text-left col-md-4">
           <%= f.label :price %>
         </span>
@@ -61,6 +74,12 @@
           <%= link_to "Add to Cart", order_items_path, method: :post %> <br>
         </span>
       </div>
+
+        </span>
+
+
+
+     
 
     <% end %>
   <% end %>
