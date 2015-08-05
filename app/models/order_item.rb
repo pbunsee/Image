@@ -1,8 +1,8 @@
 class OrderItem < ActiveRecord::Base
-  #belongs_to :product
-
   belongs_to :order
-  belongs_to :item
+  belongs_to :product
+
+  before_create :instantiate_order
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :product_present
@@ -11,6 +11,12 @@ class OrderItem < ActiveRecord::Base
   before_save :finalize
 
 private
+  def instantiate_order
+    if !current_order
+      @order = Order.new
+    end
+  end
+
   def unit_price
     #if persisted?
       #self[:unit_price]

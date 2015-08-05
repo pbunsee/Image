@@ -27,3 +27,16 @@ function decrementQty(){
   console.log("Decrementing product inventory");
 }
 
+$(document).on('ready page:load',function(){
+
+  console.log('ready!');
+
+  //listen for onclick event on Add Cart
+  $('.add-btn').click(function(){
+    console.log( "Handler for Add Cart .click() called." );
+    line_item = $(this).data('line-item');
+    console.dir(line_item);
+  });
+});
+
+
