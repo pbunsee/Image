@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   resources :products   
-      #, only: [:index, :new, :show, :create]
-  resource :cart, only: [:show] 
-  resources :orders, :except => :edit
-  resources :order_items, only: [:create, :update, :destroy]
+  resources :orders do      
+    resources :order_items  
+  end
+
   root to: "pages#home"
 
   get 'pages/home'
@@ -13,15 +13,8 @@ Rails.application.routes.draw do
 
   get 'pages/contact'
 
-  get 'order_items/create'
-
-  get 'order_items/updatedestroy'
-
-  # get 'carts/show'
-
-  # get 'products/index'
-
   devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
