@@ -1,2 +1,14 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<article class="contact-form">
+<script src="js/contact.js"></script>
+	<form method="POST", action="/contact">
+		<p>Have a question, or want to tell us something?<p>
+		<p>Let us know with the form below!</p>
+		<span class="name-box-label">Name:</span><br />
+		<input class="name-box" size="25" type="text" name="contact_name" placeholder="Enter your name"></input><span class="name-box-error"> Please enter your name </span><br />
+		<span class="message-box-label">Message:</span><br />
+			<div>
+				<textarea class="message-box" wrap="off" cols="40" rows="5" name="message" placeholder="Enter your message"></textarea><span class="message-box-error"> Please enter a message </span><br />
+			</div>
+		<button id="submit-button" type="submit" value="Submit" disabled>Submit</button>
+	</form>
+</article>
