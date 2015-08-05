@@ -21,10 +21,10 @@
       <div class="form-group">
         <span class="col-md-5">
 
-        <%= image_tag @product.image_file_name, 'data-toggle' => "modal", 'data-target' => "#myModal" %>
+        <%= image_tag @product.image.url(:medium), 'data-toggle' => "modal", 'data-target' => "#myModal" %>
 
         </span>
-
+      </div>
         <!-- Modal -->
           <div class="modal fade" id="myModal" role="dialog" >
             <div class="modal-dialog">
@@ -100,9 +100,10 @@
 
           <div class="form-group">
             <span class="btn btn-block col-md-12">
-              <%= link_to "Add to Cart", order_items_path, method: :post %> <br>
+              <%= link_to 'Add to Cart', '#', class: "add-btn", data: { line_item: @product.attributes } %> <br>
             </span>
           </div>
+
 
         </span>
 
@@ -110,5 +111,5 @@
 
   <% end %>
 
-<div>
+</div>
 

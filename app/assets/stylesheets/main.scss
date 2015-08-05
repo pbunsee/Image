@@ -1,18 +1,29 @@
 body {
    margin: 0;
    padding: 0;
- }
+}
 
- 
 header {
   margin-bottom: 0;
 }
 
+.flash {
+  margin-top:0;
+  padding-top: 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+  font-size: 1.3em;
+}
+
 .notice {
-  margin-top: 100px;
+  background: green;
+  color: white;
 }
 
 .alert {
-  margin-top: 100px;
+  background: rgba(0, 0, 0, 0.1);
+  color: black;
 }
 
