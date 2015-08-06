@@ -7,32 +7,37 @@ function setCookie(obj, cookieName) {
 }
 
 function getCookie(cookieName) {
-  console.log("cookieName is: " + cookieName);
+  console.log("get cookieName is: " + cookieName);
   var tempStr = Cookies.get(cookieName);
   var objName = JSON.parse(tempStr);
   //console.dir(objName);
-  return objName;
+  //return objName;
+  arrCart = objName;
+  return arrCart;
 }
 
 function removeCookie(){
+  //erase the cookie if it hasn't already expired
 }
 
 function addItem(line_item){
   console.log("adding item to cart");
-  setCookie(line_item, 'lineItemCookie');
   addToCart(line_item);
-    console.dir(arrCart);
+  setCookie(arrCart, 'cart');
+  console.dir(arrCart);
 }
 
 function getItem(){
-  console.log("getting item from cart");
-  var line_item = getCookie('lineItemCookie');
-  console.dir(line_item);
+  //console.log("getting item from cart");
+  //var line_item = getCookie('lineItemCookie');
+  //console.dir(line_item);
+  // if no cart object have to get the cart cookie, convert to object and then navigate the object to find the line_item object
 }
 
 function removeItem(){
   console.log("removing item from cart");
   //removeCookie('lineItemCookie', line_item);
+  // if no cart object have to get the cart cookie, convert to object and then navigate the object to find the line_item object
   removeFromCart(line_item);
 }
 
@@ -44,19 +49,20 @@ function getCart() {
     var tempCart = [];
   }
   return tempCart;
-    console.dir(tempCart);
+  console.dir(tempCart);
 }
 
 function addToCart(objLineItem){
   console.log("Adding to cart");
   arrCart.push(objLineItem);
-    console.dir(arrCart);
+  console.dir(arrCart);
 }
 
 function removeFromCart(objLineItem){
   console.log("Removing line item from cart");
   var atIndex = arrCart.indexOf(objLineItem);
   arrCart.splice(atIndex, 1);
+  console.dir(arrCart);
 }
 
 function emptyCart(){
@@ -92,7 +98,15 @@ $(document).on('ready page:load',function(){
     console.dir(arrCart);
     addItem(line_item);
     console.dir(arrCart);
-    getItem();
+    //getItem();
+    getCookie('cart');
+    console.dir(arrCart);
+    
+    //ideally shift this to another event listener on click of cart link
+    console.log(_.size(arrCart));
+    //_.reduce(arrCart.item,function(memo, num){ return memo + (num.price * num.qty); },0);
+    //var numItems = _.reduce(_.each(arrCart,function(memo, num){ return memo + (num.price * 1); },0));
+    //console.dir(numItems);
   });
 });
 
