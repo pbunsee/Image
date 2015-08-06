@@ -13,18 +13,18 @@
 
       <div class="form-group">
         <span class="col-md-12 text-center">
-          <h1> <%= @product.name %> Product Details</h1>
+          <h1> <%= @product.name %> </h1>
         </span>
       </div>
 
-
       <div class="form-group">
-        <span class="col-md-5">
+        <span class="col-md-5 text-center" >
 
         <%= image_tag @product.image.url(:medium), 'data-toggle' => "modal", 'data-target' => "#myModal" %>
 
         </span>
       </div>
+
         <!-- Modal -->
           <div class="modal fade" id="myModal" role="dialog" >
             <div class="modal-dialog">
@@ -51,58 +51,75 @@
         <span class="col-md-7">
 
           <div class="form-group">
+
             <span class="control-label text-left col-md-4">
-              <%= f.label :name, 'Product Name' %>
+              <%= f.label :name, 'Product Name:' %>
             </span>
 
             <span class="text-left col-md-8">
-              <%= f.text_field :name %>
+              <%= @product.name %>
             </span>
 
-          </div>
+          </div><br>
 
           <div class="form-group">
 
             <span class="control-label text-left col-md-4">
-              <%= f.label :price %>
+              <%= f.label :price, 'Price:' %>
             </span>
+
             <span class="text-left col-md-8">
-              <%= f.text_field :price %>
+              $ <%= @product.price %>
             </span>
-          </div>
+
+          </div><br>
 
           <div class="form-group">
             <span class="control-label text-left col-md-4">
-              <%= f.label :size %>
+              <%= f.label :size, 'Size:' %>
+
             </span>
             <span class="text-left col-md-8">
-              <%= f.text_field :size %>
+              <%= f.select(:size, options_for_select([['Size 7', 1],
+                                                        ['Size 7.5', 2],       
+                                                        ['Size 8', 3],
+                                                        ['Size 8.5', 4],
+                                                        ['Size 9', 5],
+                                                        ['Size 9.5', 6],
+                                                        ['Size 10', 7],
+                                                        ['Size 10.5', 8],
+                                                        ['Size 11', 9],
+                                                        ['Size 11.5', 10],
+                                                        ['Size 12', 11]
+                                                        ])) %>
             </span>
-          </div>
+          </div><br>
 
           <div class="form-group">
             <span class="control-label text-left col-md-4">
-              <%= f.label :brand %>
+              <%= f.label :brand, 'Brand:' %>
             </span>
             <span class="text-left col-md-8">
-              <%= f.text_field :brand %>
+              <%= @product.brand %>
             </span>
-          </div>
+          </div><br>
 
           <div class="form-group">
             <span class="control-label text-left col-md-4">
-              <%= f.label :description %>
+              <%= f.label :description, 'Description:' %>
             </span>
             <span class="text-left col-md-8">
-              <%= f.text_field :description %>
+              <%= @product.description %>
             </span>
-          </div>
+          </div><br>
 
           <div class="form-group">
-            <span class="btn btn-block col-md-12">
-              <%= link_to 'Add to Cart', '#', class: "add-btn", data: { line_item: @product.attributes } %> <br>
+            <span class="col-md-12">
+              <button type="button" class="btn btn-danger">
+              <%= link_to 'Add to Cart', '#', class: "add-btn", data: { line_item: @product.attributes } %></button> <br>
             </span>
-          </div>
+          </div><br>
+
 
 
         </span>

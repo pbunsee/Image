@@ -20,8 +20,8 @@
       <%= f.text_field :size, placeholder: 'Size' %><br>
       <%= f.label 'Brand' %>
       <%= f.text_field :brand, placeholder: 'Brand' %><br>
-      <%= f.label 'Description' %>
-      <%= f.text_field :description, placeholder: 'Description' %><br>
+      <%= f.label 'Description' %><br>
+      <%= f.text_area :description, placeholder: 'Description' %><br>
     </div>
     <div class="buttons_div">
        <%= f.submit :Update %> <%= button_tag "Cancel", type: :cancel %>
