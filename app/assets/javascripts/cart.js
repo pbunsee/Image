@@ -107,7 +107,19 @@ $(document).on('ready page:load',function(){
     //_.reduce(arrCart.item,function(memo, num){ return memo + (num.price * num.qty); },0);
     //var numItems = _.reduce(_.each(arrCart,function(memo, num){ return memo + (num.price * 1); },0));
     //console.dir(numItems);
+
+
+  var $inputs = $('.edit_product :input');
+
+  // get an associative array of just the values.
+  var values = {};
+  $inputs.each(function() {
+     values[this.name] = $(this).val();
   });
+  console.log("grabbed the form vals");
+  console.dir(values);
+  });
+
 });
 
 
