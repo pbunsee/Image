@@ -1,4 +1,4 @@
-<h1>List of all products</h1>
+<h1>List of All Our Products</h1>
 
 <div id="list-products">
 
@@ -10,7 +10,6 @@
         <th>Product Image</th>
         <th>Name</th>
         <th>Price</th>
-        <th>Size</th>
         <th>Brand</th>
         <th>Description</th>
         <th>Admin</th>
@@ -25,10 +24,9 @@
               <%= product.name %>
               <% end %>
           </td>
-          <td><%= product.price %></td>
-          <td><%= product.size %></td>
-          <td><%= product.brand %></td>
-          <td width="40%"><%= product.description %></td>
+          <td> <%= product.price %></td>
+          <td> <%= product.brand %></td>
+          <td width="45%"> <%= product.description %></td>
           <td><%= link_to 'Edit', edit_product_path(product) %>  | <%= link_to "Delete", product_path(product), method: :delete %></td>
         </tr>
         <% end %>
