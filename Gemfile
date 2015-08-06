@@ -27,6 +27,10 @@ gem 'devise'
 
 gem "paperclip", "~> 4.3"
 
+gem 'mail_form'
+
+gem 'mandrill-rails'
+
 # gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
