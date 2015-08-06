@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   get 'pages/about'
 
-  # get 'pages/contact'
 
   resources "contacts", only: [:new, :create]
   
