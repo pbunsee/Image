@@ -21,13 +21,16 @@
             <%= image_tag product.image.url(:small) %>
             <% end %>
           </td>
-            <td><%= product.name %></td>
-            <td><%= product.price %></td>
-            <td><%= product.size %></td>
-            <td><%= product.brand %></td>
-            <td><%= product.description %></td>
-            <td><%= link_to 'Edit', edit_product_path(product) %>  | <%= link_to "Delete", product_path(product), method: :delete %></td>
-          </tr>
+          <td><%= link_to product_path product do %>
+              <%= product.name %>
+              <% end %>
+          </td>
+          <td><%= product.price %></td>
+          <td><%= product.size %></td>
+          <td><%= product.brand %></td>
+          <td width="40%"><%= product.description %></td>
+          <td><%= link_to 'Edit', edit_product_path(product) %>  | <%= link_to "Delete", product_path(product), method: :delete %></td>
+        </tr>
         <% end %>
     </table>
   <% end %>
