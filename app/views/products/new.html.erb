@@ -17,10 +17,24 @@
 
     <div class="row">
 
+      <span class="col-md-4 text-center">
+      </span>
+
+      <span class="col-md-4 text-center">
+        <hr>
+      </span>
+
+      <span class="col-md-4 text-center">
+      </span>
+
+    </div>
+
+    <div class="row">
+
       <span class="col-md-4"></span>
       
       <span class="col-md-2">
-        <%= f.label 'Product Name' %>
+        <%= f.label 'Product Name:' %>
       </span>
 
       <span class="col-md-2">
@@ -35,7 +49,7 @@
       <span class="col-md-4"></span>
       
       <span class="col-md-2">
-        <%= f.label 'Price' %>
+        <%= f.label 'Price:' %>
       </span>
 
       <span class="col-md-2">
@@ -51,7 +65,7 @@
       <span class="col-md-4"></span>
 
       <span class="col-md-2">
-        <%= f.label 'Size' %>
+        <%= f.label 'Size:' %>
       </span>
 
 
@@ -68,7 +82,7 @@
       <span class="col-md-4"></span>
 
       <span class="col-md-2">
-        <%= f.label 'Brand' %>
+        <%= f.label 'Brand:' %>
       </span>
 
       <span class="col-md-2">
@@ -79,14 +93,36 @@
     </div>
 
     <div class="row">
+
+      <span class="col-md-4 text-center">
+      </span>
+
+      <span class="col-md-4 text-center">
+        <hr>
+      </span>
+
+      <span class="col-md-4 text-center">
+      </span>
+
+    </div>
+
+    <div class="row">
       <span class="col-md-4">
       </span>
 
       <span class="col-md-2">
-      <%= f.label 'Description' %>
-      </span>
+      <%= f.label 'Description:' %>
+     </span>
 
-      <span class="col-md-2">
+      <span class="col-md-6"></span>
+
+    </div>
+
+    <div class="row">
+
+      <span class="col-md-4"></span>
+
+      <span class="col-md-4 text-center"> 
         <%= f.text_area :description, placeholder: 'Description' %>
       </span>
 
@@ -113,7 +149,7 @@
       <span class="col-md-4"></span>
 
       <span class="col-md-2">
-          <%= f.label 'Image' %>
+          <%= f.label 'Image:' %>
       </span>
       <span class="col-md-2">
          <%= f.file_field :image %>
@@ -143,14 +179,17 @@
 
       <span class="col-md-2 text-center" >
         <div class="buttons_div">
-           <%= f.submit :Create %> <%= button_tag "Cancel", type: :cancel %>
+           <%= f.submit :Create %> 
+           <%= button_tag "Cancel" %>
         </div>
       </span>
 
       <span class="col-md-5"></span>
 
      </div>
+
   <% end %>
+
 
 </div>
 

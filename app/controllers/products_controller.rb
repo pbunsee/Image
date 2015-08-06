@@ -62,7 +62,7 @@ class ProductsController < ApplicationController
     before_filter :check_for_cancel, :only => [:create, :update]
 
     def check_for_cancel
-      if params[:cancel] == "Cancel"
+      if params[:button]
         redirect_to products_path
       end
     end

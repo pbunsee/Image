@@ -1,3 +1,7 @@
 .btn-danger a {
   color: white;
 }
+
+textarea {
+  width: 300px; height: 150px;
+}
