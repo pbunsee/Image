@@ -44,7 +44,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings ={
     :address => "smtp.mandrillapp.com",
     :port    => 587,
-    :enable_strrls_auto => true,
+    :enable_starttls_auto => true,
     :user_name => "sabihay@hotmail.com",
     :password  => "se-5NnmPpFFKH340-Irc0g",
     :authentication => 'plain',
