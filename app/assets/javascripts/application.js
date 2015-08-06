@@ -11,5 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require cookies
 //= require jquery_ujs
 //= require_tree .
+
