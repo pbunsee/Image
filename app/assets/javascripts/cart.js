@@ -1,17 +1,14 @@
 function setCookie(obj, cookieName) {
   console.dir(obj);
-  console.log("cookieName is: " + cookieName);
   var tempStr = JSON.stringify(obj);
   console.log("tempStr is: " + tempStr);
   Cookies.set(cookieName, tempStr);
 }
 
 function getCookie(cookieName) {
-  console.log("get cookieName is: " + cookieName);
   var tempStr = Cookies.get(cookieName);
   var objName = JSON.parse(tempStr);
   //console.dir(objName);
-  //return objName;
   arrCart = objName;
   return arrCart;
 }
@@ -41,6 +38,7 @@ function removeItem(){
   removeFromCart(line_item);
 }
 
+/*
 function getCart() {
   console.log("Getting a cart");
   // instantiate the cart array if it doesn't already exist
@@ -50,6 +48,32 @@ function getCart() {
   }
   return tempCart;
   console.dir(tempCart);
+}
+*/
+
+function getCart() {
+  console.log("Getting the cart");
+  if ( typeof arrCart == "undefined" ) {
+    var cartFromCookie = getCookie('cart');
+    if ( typeof cartFromCookie == "undefined" ) {
+      console.log("cart cookie not found");
+      console.log("New cart");
+      var newCart  = [];
+      return newCart;
+      console.log("newCart");
+      console.dir(newCart);
+    } else
+    {
+      return cartFromCookie;
+      console.log("cartFromCookie");
+      console.dir(cartFromCookie);
+    }
+  } else
+  {
+    return arrCart;
+    console.log("arrCart");
+    console.dir(arrCart);
+  }
 }
 
 function addToCart(objLineItem){
@@ -82,17 +106,21 @@ function decrementQty(){
 }
 
 // set the cart as global variable
-console.log("before document ready do some prep");
+console.log("Init global variables");
 var arrCart = getCart();
 console.dir(arrCart);
 
 $(document).on('ready page:load',function(){
-
   console.log('ready!');
 
   //listen for onclick event on 'Add to Cart' link
   $('.add-btn').click(function(){
     console.log( "Handler for Add product into cart .click() called." );
+
+    // Keep product master record available to enrich cart data
+    var product_master = $(this).data('line-item');
+    console.dir(product_master);
+    console.dir(product_master);
 
     // get an associative array of just the values from the show product form
      var $inputs = $('.edit_product :input');
@@ -123,16 +151,20 @@ $(document).on('ready page:load',function(){
     console.log("core_line_item");
     console.dir(core_line_item);
 
-    //var line_item = $(this).data('line-item');
-    //console.dir(line_item);
-    //console.dir(arrCart);
-
+    // persist the core_line_item to cookie
     addItem(core_line_item);
     console.dir(arrCart);
-    getItem();
+
+    //getItem();
 
     getCookie('cart');
     console.dir(arrCart);
+
+    // create enriched cart
+    // create cart facade - dump the arrCart object into div cart-line-items on layout
+    $('#cart-line-items').html('<p>oh</p>');
+    $('#cart-line-items').html('<p>oh</p>');
+
 
     //ideally shift this to another event listener on click of cart link
     console.log(_.size(arrCart));
