@@ -6,24 +6,24 @@
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
 
-    <!-- Latest compiled and minified CSS -->
+    <!-- Bootstrap Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Optional theme -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
 
-    <!-- Latest compiled and minified JavaScript -->
+    <!-- Bootstrap Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    
-
+    <!-- JSON Library to serialize from Object to JSON and vice versa -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.js"></script>
 
     <!-- Custom stylesheet to override Bootstrap styling -->
     <link rel="stylesheet" type="text/css" href="/assets/custom.css">
 
-    <!-- Bootstrap 3 is designed to be responsive to mobile devices. Mobile-first styles are part of the core framework.
-
-    To ensure proper rendering and touch zooming, add the following <meta> tag inside the <head> element -->
+    <!-- Bootstrap 3 is designed to be responsive to mobile devices. 
+         Mobile-first styles are part of the core framework.
+         To ensure proper rendering and touch zooming, add the following <meta> tag inside the <head> element -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -43,7 +43,7 @@
               <li> <%= link_to 'Home', root_path %> </li>
               <li> <%= link_to 'Products', products_path %> </li>
               <li> <%= link_to 'About', pages_about_path %> </li>
-              <li> <%= link_to 'Contact', pages_contact_path %> </li>
+              <li> <%= link_to 'Contact', new_contact_path %> </li>
 <!--          <li> <%= link_to 'Sign In', user_session_path %> </li>
               <li>  <%= link_to 'Sign Up', new_user_registration_path %> </li>
               <li> <%= link_to 'Edit Profile', edit_user_registration_path %>
@@ -71,5 +71,12 @@
     <%= yield %>
     
   </div> <!-- end of container div -->
+
+  <div id="cart">
+    <h2>Cart</h2>
+    <div id="cart-line-items">
+    </div>
+  </div>
+
   </body>           
 </html>

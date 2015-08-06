@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
   get 'pages/about'
 
-  get 'pages/contact'
+  # get 'pages/contact'
 
+  resources "contacts", only: [:new, :create]
+  
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

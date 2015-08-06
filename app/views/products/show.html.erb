@@ -57,7 +57,7 @@
             </span>
 
             <span class="text-left col-md-8">
-              <%= @product.name %>
+              <%= f.text_field :name, readonly: true %>
             </span>
 
           </div><br>
@@ -69,7 +69,7 @@
             </span>
 
             <span class="text-left col-md-8">
-              $ <%= @product.price %>
+              $ <%= f.text_field :price, readonly: true %>
             </span>
 
           </div><br>
@@ -100,7 +100,7 @@
               <%= f.label :brand, 'Brand:' %>
             </span>
             <span class="text-left col-md-8">
-              <%= @product.brand %>
+              <%= f.text_field :brand, readonly: true %>
             </span>
           </div><br>
 
@@ -109,7 +109,7 @@
               <%= f.label :description, 'Description:' %>
             </span>
             <span class="text-left col-md-8">
-              <%= @product.description %>
+              <%= f.text_field :description, readonly: true %>
             </span>
           </div><br>
 
