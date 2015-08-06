@@ -51,6 +51,12 @@
         <span class="col-md-7">
 
           <div class="form-group">
+            <span class="text-left col-md-8">
+              <%= f.hidden_field :id, readonly: true %>
+            </span>
+          </div><br>
+
+          <div class="form-group">
 
             <span class="control-label text-left col-md-4">
               <%= f.label :name, 'Product Name:' %>
