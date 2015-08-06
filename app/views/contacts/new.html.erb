@@ -1,0 +1,27 @@
+<div class="container-con">
+<h1>Contact Us</h1>
+
+<%= form_for @contact do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true %>(required)<br /><br><br>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, :required => true %>(required)
+    <br /><br><br>
+  </div>
+  
+  <div class="field">
+    <div class="field-center">
+  Comments :<br/> <%= f.text_area :message %><br/><br><br>
+    </div>
+  </div>
+  <div class="field">
+    <div class="field-center">
+      <%= f.submit "Send Message", :class=> "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
+</div>
