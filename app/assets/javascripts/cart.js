@@ -93,33 +93,54 @@ $(document).on('ready page:load',function(){
   //listen for onclick event on 'Add to Cart' link
   $('.add-btn').click(function(){
     console.log( "Handler for Add product into cart .click() called." );
-    var line_item = $(this).data('line-item');
-    console.dir(line_item);
+
+    // get an associative array of just the values from the show product form
+     var $inputs = $('.edit_product :input');
+     var productValues = {};
+     $inputs.each(function() {
+        tempStr = this.name;
+        tempStr = tempStr.replace("product[","");
+        tempStr = tempStr.replace("]","");
+        if (!tempStr || tempStr == "" || tempStr == '""') { 
+          console.log("don't want this key/val pair!"); 
+        } else
+        { 
+          if ( tempStr == "id" || tempStr == "size" ) {
+            productValues[tempStr] = $(this).val() 
+          }
+        };
+     });
+     console.log("grabbed the form vals");
+     console.dir(productValues);
+
+    // construct a new object to store only product.id and product size
+    var core_line_item = _.map(productValues, function(key, val) {
+                                     return [val, key] ;
+                                 }
+                              );
+
+    core_line_item = _.flatten(core_line_item);
+    console.log("core_line_item");
+    console.dir(core_line_item);
+
+    //var line_item = $(this).data('line-item');
+    //console.dir(line_item);
+    //console.dir(arrCart);
+
+    addItem(core_line_item);
     console.dir(arrCart);
-    addItem(line_item);
-    console.dir(arrCart);
-    //getItem();
+    getItem();
+
     getCookie('cart');
     console.dir(arrCart);
-    
+
     //ideally shift this to another event listener on click of cart link
     console.log(_.size(arrCart));
     //_.reduce(arrCart.item,function(memo, num){ return memo + (num.price * num.qty); },0);
     //var numItems = _.reduce(_.each(arrCart,function(memo, num){ return memo + (num.price * 1); },0));
     //console.dir(numItems);
 
-
-  var $inputs = $('.edit_product :input');
-
-  // get an associative array of just the values.
-  var values = {};
-  $inputs.each(function() {
-     values[this.name] = $(this).val();
   });
-  console.log("grabbed the form vals");
-  console.dir(values);
-  });
-
 });
 
 
