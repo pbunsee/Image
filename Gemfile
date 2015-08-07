@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-source 'https://code.stripe.com'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
