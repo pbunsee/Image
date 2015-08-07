@@ -18,7 +18,7 @@
       </div>
 
       <div class="form-group">
-        <span class="col-md-5 text-center" >
+        <span class="col-md-4 text-center" >
 
         <%= image_tag @product.image.url(:medium), 'data-toggle' => "modal", 'data-target' => "#myModal" %>
 
@@ -75,7 +75,7 @@
             </span>
 
             <span class="text-left col-md-8">
-              $ <%= f.text_field :price, readonly: true %>
+              <%= f.text_field :price, readonly: true %>
             </span>
 
           </div><br>
@@ -115,7 +115,7 @@
               <%= f.label :description, 'Description:' %>
             </span>
             <span class="text-left col-md-8">
-              <%= f.text_field :description, readonly: true %>
+              <%= f.text_area :description, readonly: true %>
             </span>
           </div><br>
 
@@ -125,8 +125,6 @@
               <%= link_to 'Add to Cart', '#', class: "add-btn", data: { line_item: @product.attributes } %></button> <br>
             </span>
           </div><br>
-
-
 
         </span>
 
