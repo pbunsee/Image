@@ -33,6 +33,8 @@ gem 'mandrill-rails'
 
 gem 'gon', '~> 5.2.3'
 
+gem 'will_paginate', '~> 3.0.6'
+
 
 # gem 'bootstrap-sass'
 
