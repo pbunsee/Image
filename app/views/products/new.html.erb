@@ -106,29 +106,30 @@
 
     </div>
 
-    <div class="row">
-      <span class="col-md-4">
-      </span>
-
-      <span class="col-md-2">
-      <%= f.label 'Description:' %>
-     </span>
-
-      <span class="col-md-6"></span>
-
-    </div>
-
-    <div class="row">
+<div class="row">
 
       <span class="col-md-4"></span>
 
-      <span class="col-md-4 text-center"> 
-        <%= f.text_area :description, placeholder: 'Description' %>
+      <span class="col-md-4 text-center" >  
+        <%= f.label 'Description:' %>
       </span>
 
       <span class="col-md-4"></span>
 
     </div>
+
+    <div class="row">
+
+      <span class="col-md-2"></span>
+
+      <span class="col-md-8 text-center">  
+        <%= f.text_area :description, placeholder: 'Description:' %>
+      </span>
+
+      <span class="col-md-2"></span>
+
+    </div>
+
 
     <div class="row">
 
