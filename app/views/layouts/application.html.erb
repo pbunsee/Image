@@ -38,23 +38,21 @@
       <nav class="navbar navbar-inverse navbar-custom">
         <div class="container-fluid">
          <div class="navbar-header">
-           <a class="navbar-brand" href= "/pages/home">Sneaker Store   |</a>
+           <a class="navbar-brand" href= "/pages/home"><img src="/assets/logo.jpg" width="100"></a>
           </div>
           <div>
             <ul class="nav navbar-nav">
-              <li> <%= link_to 'Home', root_path %> </li>
               <li> <%= link_to 'Products', products_path %> </li>
               <li> <%= link_to 'About', pages_about_path %> </li>
               <li> <%= link_to 'Contact', new_contact_path %> </li>
             </ul>
 
-            <% if !current_user %>
+
               <ul class="nav navbar-nav navbar-right">
                  <li> <%= link_to 'Sign In', user_session_path %> </li>
                 <li>  <%= link_to 'Sign Up', new_user_registration_path %> </li>
                 <li> <%= link_to 'Edit Profile', edit_user_registration_path %>
                 <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
-                <% end %>
             </ul>
           </div>
         </div>
