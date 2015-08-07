@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+source 'https://code.stripe.com'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -32,6 +34,8 @@ gem 'mail_form'
 gem 'mandrill-rails'
 
 gem 'gon', '~> 5.2.3'
+
+gem 'stripe', '~> 1.20.4'
 
 
 # gem 'bootstrap-sass'
