@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    puts "@product.inspect #{@product.inspect}"
+    gon.product = @product
   end
 
   def edit

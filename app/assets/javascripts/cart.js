@@ -104,7 +104,10 @@ $(document).on('ready page:load',function(){
     console.log( "Handler for Add product into cart .click() called." );
 
     // Keep product master record available to enrich cart data
-    var product_master = $(this).data('line-item');
+    //var product_master = $(this).data('line-item');
+    if ( gon ) {
+      var product_master = gon.product 
+    }
     console.log("product_master");
     console.dir(product_master);
 

@@ -31,6 +31,9 @@ gem 'mail_form'
 
 gem 'mandrill-rails'
 
+gem 'gon', '~> 5.2.3'
+
+
 # gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
@@ -51,9 +54,6 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-
-
 
 end
 
