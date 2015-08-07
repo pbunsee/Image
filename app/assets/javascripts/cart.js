@@ -62,10 +62,37 @@ function getCart() {
 
 function addToCart(objLineItem){
   console.log("Adding to cart");
-  arrCart.push(objLineItem);
-  console.dir(arrCart);
-}
+  //var product_master = $(this).data('line-item');
 
+  // Get product master record to enrich cart data
+  // Use gon.watch to auto-fetch product master record updates (without any additional code)
+
+  // Must have the test if any gon variables are set before trying to use it to prevent exception being thrown
+  if ( gon ) {
+
+    // optional interval on gon.watch method is not set so the product variable is refreshed from server-side once
+    // can set an interval: gon.watch('yourVariable', optionalInterval, callbackFn); 
+    // but beware of creating heavy traffic between client-side and ruby back-end with frequent watch refreshes
+
+    var product_master = gon.watch('product', function isProductUpdated(product){
+                            // Inventory and Price are important to consider when adding to cart and on checkout  
+                            // Is there sufficient inventory to fulfill the order?
+                            // Has the price changed? If yes, recalculate pricing in the cart                  
+                            if ( product.quantity_in_stock != null && product.quantity_in_stock > 0 ) {
+                               arrCart.push(objLineItem);
+                               console.dir(arrCart);
+                             } else
+                             {
+                              //TBD Change this alert to an exception msg placed in pop-up modal or on product page
+                               alert("Out of stock. This item has been placed on back-order for you.");
+                             }
+                           }
+                         );
+  }
+  console.log("product_master");
+  console.dir(product_master);
+}
+  
 function removeFromCart(objLineItem){
   console.log("Removing line item from cart");
   var atIndex = arrCart.indexOf(objLineItem);
@@ -102,14 +129,6 @@ $(document).on('ready page:load',function(){
   //listen for onclick event on 'Add to Cart' link
   $('.add-btn').click(function(){
     console.log( "Handler for Add product into cart .click() called." );
-
-    // Keep product master record available to enrich cart data
-    //var product_master = $(this).data('line-item');
-    if ( gon ) {
-      var product_master = gon.product 
-    }
-    console.log("product_master");
-    console.dir(product_master);
 
     // get an associative array of just the values from the show product form
     var $inputs = $('.edit_product :input');
