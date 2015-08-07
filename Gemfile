@@ -35,7 +35,11 @@ gem 'mandrill-rails'
 
 gem 'gon', '~> 5.2.3'
 
+
 gem 'stripe', '~> 1.20.4'
+
+gem 'will_paginate', '~> 3.0.6'
+
 
 
 # gem 'bootstrap-sass'

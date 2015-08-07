@@ -1,27 +1,60 @@
-<div class="container-con">
-<h1>Contact Us</h1>
 
-<%= form_for @contact do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>(required)<br /><br><br>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, :required => true %>(required)
-    <br /><br><br>
-  </div>
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+
+  <div class="contacts-container">
   
-  <div class="field">
-    <div class="field-center">
-  Comments :<br/> <%= f.text_area :message %><br/><br><br>
-    </div>
-  </div>
-  <div class="field">
-    <div class="field-center">
-      <%= f.submit "Send Message", :class=> "btn btn-primary" %>
-    </div>
-  </div>
-<% end %>
+    <span class="logo">
+      <img src="/assets/logo.jpg">
+    </span>
 
+  </div>
+
+    <div class="row">
+    <h4 class="col-md-12 text-center">Contact us!</h4>
+    </div>
+
+    <%= form_for @contact do |f| %>
+
+    <div class="row">
+      <span class="col-md-5 text-right">
+       <%= f.label :name %>:
+      </span>
+      <span class="col-md-7 text-left">
+      <%= f.text_field :name, required: :true, placeholder: "required" %><br>
+      </span>
+    </div>
+
+    <div class="row">
+      <span class="col-md-5 text-right">
+        <%= f.label :email %>:
+      </span>
+      <span class="col-md-7 text-left">
+        <%= f.email_field :email, required: :true, placeholder: "required" %>
+      </span>
+
+    </div>
+      <span class="col-md-12"><hr></span>
+    <div>
+
+    
+    <div class="row">
+      <div class="col-md-12 text-center"> 
+         <%= f.label :message, 'Message:' %><br/> 
+        <%= f.text_area :message %><br/><br><br>
+      </div>
+    </div>
+    <div>
+      <div class="text-center">
+        <%= f.submit "Send Message", class: "btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+
+  </div>
 </div>
+<div class="col-md-3"></div>
+</div>
+
+
