@@ -1,14 +1,11 @@
 function setCookie(obj, cookieName) {
-  console.log("hey 1");
   console.dir(obj);
   var tempStr = JSON.stringify(obj);
-  console.log("tempStr is: " + tempStr);
   Cookies.set(cookieName, tempStr);
 }
 
 function getCookie(cookieName) {
   var tempStr = Cookies.get(cookieName);
-  console.log("tempStr in getCookie: " + tempStr);
   var objName = JSON.parse(tempStr);
   var arrCart = objName;
   return arrCart;
@@ -22,7 +19,6 @@ function addItem(line_item){
   console.log("adding item to cart");
   addToCart(line_item);
   setCookie(arrCart, 'cart');
-  console.log("hey 4");
   console.dir(arrCart);
 }
 
@@ -40,7 +36,6 @@ function removeItem(){
   removeFromCart(line_item);
 }
 
-/*
 function getCart() {
   console.log("Getting the cart");
   if ( typeof arrCart == "undefined" ) {
@@ -50,7 +45,6 @@ function getCart() {
       console.log("New cart");
       var newCart  = [];
       return newCart;
-      console.log("newCart");
       console.dir(newCart);
     } else
     {
@@ -61,34 +55,7 @@ function getCart() {
   } else
   {
     return arrCart;
-    console.log("arrCart");
-    console.dir(arrCart);
-  }
-}
-}
-*/
-
-function getCart() {
-  console.log("Getting the cart");
-  if ( typeof arrCart == "undefined" ) {
-    var cartFromCookie = getCookie('cart');
-    if ( typeof cartFromCookie == "undefined" ) {
-      console.log("cart cookie not found");
-      console.log("New cart");
-      var newCart  = [];
-      return newCart;
-      console.log("newCart");
-      console.dir(newCart);
-    } else
-    {
-      return cartFromCookie;
-      console.log("cartFromCookie");
-      console.dir(cartFromCookie);
-    }
-  } else
-  {
-    return arrCart;
-    console.log("arrCart");
+    console.log("arrCart js object from browser cache");
     console.dir(arrCart);
   }
 }
@@ -96,7 +63,6 @@ function getCart() {
 function addToCart(objLineItem){
   console.log("Adding to cart");
   arrCart.push(objLineItem);
-  console.log("hey 4");
   console.dir(arrCart);
 }
 
@@ -127,7 +93,7 @@ function decrementQty(){
 // set the cart as global variable
 console.log("Init global variables");
 var arrCart = getCart();
-console.log("hey 6");
+console.log("cart init");
 console.dir(arrCart);
 
 $(document).on('ready page:load',function(){
@@ -139,32 +105,32 @@ $(document).on('ready page:load',function(){
 
     // Keep product master record available to enrich cart data
     var product_master = $(this).data('line-item');
-    console.dir(product_master);
+    console.log("product_master");
     console.dir(product_master);
 
     // get an associative array of just the values from the show product form
-     var $inputs = $('.edit_product :input');
-     var productValues = {};
-     $inputs.each(function() {
-        tempStr = this.name;
-        tempStr = tempStr.replace("product[","");
-        tempStr = tempStr.replace("]","");
-        if (!tempStr || tempStr == "" || tempStr == '""') { 
-          console.log("don't want this key/val pair!"); 
-        } else
-        { 
-          if ( tempStr == "id" || tempStr == "size" ) {
-            productValues[tempStr] = $(this).val() 
-          }
-        };
-     });
-     console.log("grabbed the form vals");
-     console.dir(productValues);
+    var $inputs = $('.edit_product :input');
+    var productValues = {};
+    $inputs.each(function() {
+      tempStr = this.name;
+      tempStr = tempStr.replace("product[","");
+      tempStr = tempStr.replace("]","");
+      if (!tempStr || tempStr == "" || tempStr == '""') { 
+        console.log("don't want this key/val pair!"); 
+      } else
+      { 
+        if ( tempStr == "id" || tempStr == "size" ) {
+          productValues[tempStr] = $(this).val() 
+        }
+      };
+    });
+    console.log("grabbed the form vals");
+    console.dir(productValues);
 
     // construct a new object to store only product.id and product size
     var core_line_item = _.map(productValues, function(key, val) {
-                                     return [val, key] ;
-                                 }
+                                                 return [val, key] ;
+                                              }
                               );
 
     core_line_item = _.flatten(core_line_item);
@@ -173,11 +139,6 @@ $(document).on('ready page:load',function(){
 
     // persist the core_line_item to cookie
     addItem(core_line_item);
-    var line_item = $(this).data('line-item');
-    console.dir(line_item);
-    console.dir(arrCart);
-    addItem(line_item);
-    console.dir(arrCart);
 
     //getItem();
 
@@ -189,7 +150,6 @@ $(document).on('ready page:load',function(){
     $('#cart-line-items').html('<p>oh</p>');
 
 
-    //ideally shift this to another event listener on click of cart link
     console.log(_.size(arrCart));
     //_.reduce(arrCart.item,function(memo, num){ return memo + (num.price * num.qty); },0);
     //var numItems = _.reduce(_.each(arrCart,function(memo, num){ return memo + (num.price * 1); },0));
@@ -197,6 +157,5 @@ $(document).on('ready page:load',function(){
 
   });
 });
-
 
 
