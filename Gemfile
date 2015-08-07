@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
@@ -33,7 +35,11 @@ gem 'mandrill-rails'
 
 gem 'gon', '~> 5.2.3'
 
+
+gem 'stripe', '~> 1.20.4'
+
 gem 'will_paginate', '~> 3.0.6'
+
 
 
 # gem 'bootstrap-sass'
