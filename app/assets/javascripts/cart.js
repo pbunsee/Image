@@ -1,4 +1,5 @@
 function setCookie(obj, cookieName) {
+  console.log("hey 1");
   console.dir(obj);
   var tempStr = JSON.stringify(obj);
   console.log("tempStr is: " + tempStr);
@@ -7,9 +8,9 @@ function setCookie(obj, cookieName) {
 
 function getCookie(cookieName) {
   var tempStr = Cookies.get(cookieName);
+  console.log("tempStr in getCookie: " + tempStr);
   var objName = JSON.parse(tempStr);
-  //console.dir(objName);
-  arrCart = objName;
+  var arrCart = objName;
   return arrCart;
 }
 
@@ -21,6 +22,7 @@ function addItem(line_item){
   console.log("adding item to cart");
   addToCart(line_item);
   setCookie(arrCart, 'cart');
+  console.log("hey 4");
   console.dir(arrCart);
 }
 
@@ -40,14 +42,29 @@ function removeItem(){
 
 /*
 function getCart() {
-  console.log("Getting a cart");
-  // instantiate the cart array if it doesn't already exist
-  if (typeof arrCart == "undefined") {
-    console.log("New cart");
-    var tempCart = [];
+  console.log("Getting the cart");
+  if ( typeof arrCart == "undefined" ) {
+    var cartFromCookie = getCookie('cart');
+    if ( typeof cartFromCookie == "undefined" ) {
+      console.log("cart cookie not found");
+      console.log("New cart");
+      var newCart  = [];
+      return newCart;
+      console.log("newCart");
+      console.dir(newCart);
+    } else
+    {
+      return cartFromCookie;
+      console.log("cartFromCookie");
+      console.dir(cartFromCookie);
+    }
+  } else
+  {
+    return arrCart;
+    console.log("arrCart");
+    console.dir(arrCart);
   }
-  return tempCart;
-  console.dir(tempCart);
+}
 }
 */
 
@@ -79,6 +96,7 @@ function getCart() {
 function addToCart(objLineItem){
   console.log("Adding to cart");
   arrCart.push(objLineItem);
+  console.log("hey 4");
   console.dir(arrCart);
 }
 
@@ -86,6 +104,7 @@ function removeFromCart(objLineItem){
   console.log("Removing line item from cart");
   var atIndex = arrCart.indexOf(objLineItem);
   arrCart.splice(atIndex, 1);
+  console.log("hey 5");
   console.dir(arrCart);
 }
 
@@ -108,6 +127,7 @@ function decrementQty(){
 // set the cart as global variable
 console.log("Init global variables");
 var arrCart = getCart();
+console.log("hey 6");
 console.dir(arrCart);
 
 $(document).on('ready page:load',function(){
@@ -153,6 +173,10 @@ $(document).on('ready page:load',function(){
 
     // persist the core_line_item to cookie
     addItem(core_line_item);
+    var line_item = $(this).data('line-item');
+    console.dir(line_item);
+    console.dir(arrCart);
+    addItem(line_item);
     console.dir(arrCart);
 
     //getItem();
@@ -162,7 +186,6 @@ $(document).on('ready page:load',function(){
 
     // create enriched cart
     // create cart facade - dump the arrCart object into div cart-line-items on layout
-    $('#cart-line-items').html('<p>oh</p>');
     $('#cart-line-items').html('<p>oh</p>');
 
 
@@ -174,5 +197,6 @@ $(document).on('ready page:load',function(){
 
   });
 });
+
 
 
