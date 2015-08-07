@@ -70,7 +70,18 @@
       </span>
 
       <span class="col-md-2">    
-        <%= f.text_field :size, placeholder: 'Size' %>
+          <%= f.select(:size, options_for_select([['Size 7', 7],
+                                                    ['Size 7.5', 7.5],       
+                                                    ['Size 8', 8],
+                                                    ['Size 8.5', 8.5],
+                                                    ['Size 9', 9],
+                                                    ['Size 9.5', 9.5],
+                                                    ['Size 10', 10],
+                                                    ['Size 10.5', 10.5],
+                                                    ['Size 11', 11],
+                                                    ['Size 11.5', 11.5],
+                                                    ['Size 12', 12]
+                                                    ])) %>
       </span>
 
       <span class="col-md-4"></span>
@@ -95,6 +106,56 @@
 
     <div class="row">
 
+      <span class="col-md-4"></span>
+
+      <span class="col-md-4">
+        <hr>
+      </span>
+
+      <span class="col-md-4"></span>
+
+    </div>
+
+    <div class="row">
+
+      <span class="col-md-5"></span>
+
+      <span class="col-md-2 text-center">
+          <%= f.label 'Product Image:' %>
+      </span>
+
+      <span class="col-md-5"></span>
+
+    </div>
+
+    <div class="row">
+
+      <span class="col-md-4"></span>
+
+      <span class="col-md-4 text-center">
+        <%= image_tag @product.image.url(:medium) %>
+      </span>
+
+      <span class="col-md-4"></span>
+
+    </div>
+
+
+    <div class="row">
+
+      <span class="col-md-5"></span>
+
+      <span class="col-md-3 text-center">
+         <%= f.file_field :image %>
+      </span>
+
+      <span class="col-md-4">
+      </span>
+
+    </div>
+
+    <div class="row">
+
       <span class="col-md-4 text-center">
       </span>
 
@@ -106,60 +167,28 @@
       </span>
 
     </div>
-    
+
     <div class="row">
 
       <span class="col-md-4"></span>
 
-      <span class="col-md-2">  
+      <span class="col-md-4 text-center" >  
         <%= f.label 'Description:' %>
       </span>
 
-      <span class="col-md-6"></span>
+      <span class="col-md-4"></span>
 
     </div>
 
     <div class="row">
 
-      <span class="col-md-4"></span>
+      <span class="col-md-2"></span>
 
-      <span class="col-md-4 text-center">  
+      <span class="col-md-8 text-center">  
         <%= f.text_area :description, placeholder: 'Description:' %>
       </span>
 
-      <span class="col-md-4"></span>
-
-    </div>
-
-
-  <div class="row">
-
-    <span class="col-md-4 text-center">
-    </span>
-
-    <span class="col-md-4 text-center">
-      <hr>
-    </span>
-
-    <span class="col-md-4 text-center">
-    </span>
-
-  </div>
-
-  </div>
-      <div class="row">
-
-      <span class="col-md-4"></span>
-
-      <span class="col-md-2">
-          <%= f.label 'Image:' %>
-      </span>
-      <span class="col-md-2">
-         <%= f.file_field :image %>
-      </span>
-
-      <span class="col-md-4">
-      </span>
+      <span class="col-md-2"></span>
 
     </div>
 
