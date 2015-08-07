@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    @products = Product.order(params[:sort])
+    @products = Product.order(params[:sort]).paginate(page: params[:page], per_page: 10)
   end
 
   def new
