@@ -105,7 +105,9 @@ $(document).on('ready page:load',function(){
 
     // Keep product master record available to enrich cart data
     //var product_master = $(this).data('line-item');
-    var product_master = gon.product if gon
+    if ( gon ) {
+      var product_master = gon.product 
+    }
     console.log("product_master");
     console.dir(product_master);
 
