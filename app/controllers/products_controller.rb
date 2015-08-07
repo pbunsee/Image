@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    @products = Product.all
+    @products = Product.order(params[:sort])
   end
 
   def new
