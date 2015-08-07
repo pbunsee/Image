@@ -178,6 +178,12 @@ $(document).on('ready page:load',function(){
     //console.dir(numItems);
 
   });
+
+  //$('#checkout').click(function(){
+    //var total = 250;
+    //console.log(total);
+  //});
+
 });
 
 
