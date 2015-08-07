@@ -74,13 +74,11 @@ function addToCart(objLineItem){
     // can set an interval: gon.watch('yourVariable', optionalInterval, callbackFn); 
     // but beware of creating heavy traffic between client-side and ruby back-end with frequent watch refreshes
 
-    var product_master = gon.watch('product', function isProductUpdated(){
+    var product_master = gon.watch('product', function isProductUpdated(product){
                             // Inventory and Price are important to consider when adding to cart and on checkout  
                             // Is there sufficient inventory to fulfill the order?
-                            // Has the price changed? If yes, recalculate pricing in the cart
-
-                            console.dir(gon.product);
-                            if ( gon.product.quantity_in_stock != null && gon.product.quantity_in_stock > 0 ) {
+                            // Has the price changed? If yes, recalculate pricing in the cart                  
+                            if ( product.quantity_in_stock != null && product.quantity_in_stock > 0 ) {
                                arrCart.push(objLineItem);
                                console.dir(arrCart);
                              } else
