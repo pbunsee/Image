@@ -1,5 +1,6 @@
-class ChargesController < ApplicationController
-	def new
+class ChargesController < ActionController::Base
+
+def new
 end
 
 def create
@@ -22,4 +23,5 @@ rescue Stripe::CardError => e
   flash[:error] = e.message
   redirect_to charges_path
 end
+
 end
