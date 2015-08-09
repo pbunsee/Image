@@ -5,7 +5,7 @@
     <div class="login-container">
 
       <div class="row">
-        <h2 class="col-md-12 text-center">Log in</h2>
+        <h2 class="col-md-12 text-center">Sign in</h2>
       </div>
 
 
@@ -17,28 +17,32 @@
         <div class="row">
 
           <div class="field">
-            <span class="col-md-5 text-right">
-              <%= f.label :email %><br />
+            <span class="col-md-4 text-right">
+              <%= f.label :email %><br>
             </span>
-            <span class="col-md-7 text-left">
+            <span class="col-md-8 text-left">
                 <%= f.email_field :email, autofocus: true %>
             </span>
           </div>
 
         </div>  
 
+        <div class="row"><br></div>
+
         <div class="row">
 
           <div class="field">
-            <span class="col-md-5 text-right">
+            <span class="col-md-4 text-right">
               <%= f.label :password %><br>
             </span>
-            <span class="col-md-7 text-left">
+            <span class="col-md-8 text-left">
               <%= f.password_field :password, autocomplete: "off" %>
             </span>
           </div>
 
         </div>
+
+        <div class="row"><br></div>
 
        
         <div class="row">
@@ -58,9 +62,11 @@
 
         </div>
 
+        <div class="row"><br></div>
+
         <div class="actions row">
           <span class="col-md-12 text-center">
-            <%= f.submit "Log in" %>
+            <%= f.submit "Sign in", class: "btn btn-danger"%>
           </span>
         </div>
 

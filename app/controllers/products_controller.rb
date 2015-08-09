@@ -43,6 +43,14 @@ class ProductsController < ApplicationController
     flash[:notice] = "Selected product has been deleted"
   end
 
+  before_filter :check_for_cancel, :only => [:create, :update]
+
+  def check_for_cancel
+    if params[:button]
+      redirect_to products_path
+    end
+  end
+
   private
     def product_params
       params.require(:product).permit(:number,
@@ -60,13 +68,7 @@ class ProductsController < ApplicationController
       redirect_to products_path
     end
 
-    before_filter :check_for_cancel, :only => [:create, :update]
 
-    def check_for_cancel
-      if params[:button]
-        redirect_to products_path
-      end
-    end
 
 end
 
