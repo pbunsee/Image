@@ -36,7 +36,8 @@ gem 'mandrill-rails'
 gem 'gon', '~> 5.2.3'
 
 
-gem 'stripe', '~> 1.20.4'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 
 gem 'will_paginate', '~> 3.0.6'
 
