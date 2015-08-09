@@ -11,122 +11,122 @@
 
     <%= form_for(@product, html: { method: :get } ) do |f| %>
 
-      <div class="form-group">
-        <span class="col-md-12 text-center">
-          <h1> <%= @product.name %> </h1>
-        </span>
-      </div>
+    <div class="form-group">
+      <span class="col-md-12 text-center">
+        <h1> <%= @product.name %> </h1>
+      </span>
+    </div>
 
-      <div class="form-group">
-        <span class="col-md-4 text-center" >
+    <div class="form-group">
+      <span class="col-md-4 text-center" >
 
-        <%= image_tag @product.image.url(:medium), 'data-toggle' => "modal", 'data-target' => "#myModal" %>
+      <%= image_tag @product.image.url(:medium), 'data-toggle' => "modal", 'data-target' => "#myModal" %><br>Click image for larger view
 
-        </span>
-      </div>
+      </span>
+    </div>
 
-        <!-- Modal -->
-          <div class="modal fade" id="myModal" role="dialog" >
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog" >
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
 
-            
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title"> <%= @product.name %> </h4>
+      
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"> <%= @product.name %> </h4>
 
-                  <%= image_tag @product.image.url(:large), width: "100%" %>  
-                </div>
-
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-              
-            </div>
+            <%= image_tag @product.image.url(:large), width: "100%" %>  
           </div>
 
-        <span class="col-md-7">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+            
+      </div>
+    </div>
 
-          <div class="form-group">
-            <span class="text-left col-md-8">
-              <%= f.hidden_field :id, readonly: true %>
-            </span>
-          </div><br>
+      <span class="col-md-7">
 
-          <div class="form-group">
+        <div class="form-group">
+          <span class="text-left col-md-8">
+            <%= f.hidden_field :id, readonly: true %>
+          </span>
+        </div><br>
 
-            <span class="control-label text-left col-md-4">
-              <%= f.label :name, 'Product Name:' %>
-            </span>
+        <div class="form-group">
 
-            <span class="text-left col-md-8">
-              <%= f.text_field :name, readonly: true %>
-            </span>
+          <span class="control-label text-left col-md-4">
+            <%= f.label :name, 'Product Name:' %>
+          </span>
 
-          </div><br>
+          <span class="text-left col-md-8">
+            <%= f.text_field :name, readonly: true %>
+          </span>
 
-          <div class="form-group">
+        </div><br>
 
-            <span class="control-label text-left col-md-4">
-              <%= f.label :price, 'Price:' %>
-            </span>
+        <div class="form-group">
 
-            <span class="text-left col-md-8">
-              <%= f.text_field :price, readonly: true %>
-            </span>
+          <span class="control-label text-left col-md-4">
+            <%= f.label :price, 'Price:' %>
+          </span>
 
-          </div><br>
+          <span class="text-left col-md-8">
+            <%= f.text_field :price, readonly: true %>
+          </span>
 
-          <div class="form-group">
-            <span class="control-label text-left col-md-4">
-              <%= f.label :size, 'Size:' %>
+        </div><br>
 
-            </span>
-            <span class="text-left col-md-8">
-              <%= f.select(:size, options_for_select([['Size 7', 7],
-                                                        ['Size 7.5', 7.5],       
-                                                        ['Size 8', 8],
-                                                        ['Size 8.5', 8.5],
-                                                        ['Size 9', 9],
-                                                        ['Size 9.5', 9.5],
-                                                        ['Size 10', 10],
-                                                        ['Size 10.5', 10.5],
-                                                        ['Size 11', 11],
-                                                        ['Size 11.5', 11.5],
-                                                        ['Size 12', 12]
-                                                        ])) %>
-            </span>
-          </div><br>
+        <div class="form-group">
+          <span class="control-label text-left col-md-4">
+            <%= f.label :size, 'Size:' %>
 
-          <div class="form-group">
-            <span class="control-label text-left col-md-4">
-              <%= f.label :brand, 'Brand:' %>
-            </span>
-            <span class="text-left col-md-8">
-              <%= f.text_field :brand, readonly: true %>
-            </span>
-          </div><br>
+          </span>
+          <span class="text-left col-md-8">
+            <%= f.select(:size, options_for_select([['Size 7', 7],
+                                                      ['Size 7.5', 7.5],       
+                                                      ['Size 8', 8],
+                                                      ['Size 8.5', 8.5],
+                                                      ['Size 9', 9],
+                                                      ['Size 9.5', 9.5],
+                                                      ['Size 10', 10],
+                                                      ['Size 10.5', 10.5],
+                                                      ['Size 11', 11],
+                                                      ['Size 11.5', 11.5],
+                                                      ['Size 12', 12]
+                                                      ])) %>
+          </span>
+        </div><br>
 
-          <div class="form-group">
-            <span class="control-label text-left col-md-4">
-              <%= f.label :description, 'Description:' %>
-            </span>
-            <span class="text-left col-md-8">
-              <%= f.text_area :description, readonly: true %>
-            </span>
-          </div><br>
+        <div class="form-group">
+          <span class="control-label text-left col-md-4">
+            <%= f.label :brand, 'Brand:' %>
+          </span>
+          <span class="text-left col-md-8">
+            <%= f.text_field :brand, readonly: true %>
+          </span>
+        </div><br>
 
-          <div class="form-group">
-            <span class="col-md-12">
-              <button type="button" class="btn btn-danger">
-              <%= link_to 'Add to Cart', '#', class: "add-btn", data: { line_item: @product.attributes } %></button> <br>
-            </span>
-          </div><br>
+        <div class="form-group">
+          <span class="control-label text-left col-md-4">
+            <%= f.label :description, 'Description:' %>
+          </span>
+          <span class="text-left col-md-8">
+            <%= f.text_area :description, readonly: true %>
+          </span>
+        </div><br>
 
-        </span>
+        <div class="form-group">
+          <span class="col-md-12">
+            <button type="button" class="btn btn-danger">
+            <%= link_to 'Add to Cart', '#', class: "add-btn", data: { line_item: @product.attributes } %></button> <br>
+          </span>
+        </div><br>
+
+      </span>
 
     <% end %>
 

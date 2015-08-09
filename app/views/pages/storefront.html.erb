@@ -1,0 +1,50 @@
+<div class="storefront-box">
+
+  <h2>Our Products</h2>
+
+  <% @products.each do |product| %>
+
+  <div class="storefront-product">
+    <p class="text-center">
+    <%= link_to product_path product do %>
+      <%= image_tag product.image.url(:small) %><br>
+    <% end %>
+  </p>
+    <hr>
+    <p>
+      Name:
+      <%= link_to product_path product do %>
+        <%= product.name %><br>
+      <% end %>
+    </p>
+    
+    <p>
+      Brand:
+      <%= product.brand %><br>
+    </p>
+
+    <p>
+      Our Price:
+      $<%= product.price %><br>
+    </p>
+
+    <p>
+      <% if product.quantity_in_stock > 5 %>
+        <span style="color:green; font-weight:bold">In Stock!</span>
+        <% elsif product.quantity_in_stock > 0 && product.quantity_in_stock < 6 %>
+        <span style="color:orange; font-weight:bold">Low Stock!</span>
+        <%else%>
+        <span style="color:red; font-weight:bold">Out of stock</span>
+        <%end%>
+    </p>
+
+
+    
+
+    </div>
+
+  <% end %><br>
+
+    <%= will_paginate @products %>
+
+</div>

@@ -42,18 +42,24 @@
           </div>
           <div>
             <ul class="nav navbar-nav">
-              <li> <%= link_to 'Products', products_path %> </li>
+              <li> <%= link_to 'Storefront', pages_storefront_path %> </li>
               <li> <%= link_to 'About', pages_about_path %> </li>
               <li> <%= link_to 'Contact', new_contact_path %> </li>
             </ul>
 
-
-              <ul class="nav navbar-nav navbar-right">
-                 <li> <%= link_to 'Sign In', user_session_path %> </li>
-                <li>  <%= link_to 'Sign Up', new_user_registration_path %> </li>
-                <li> <%= link_to 'Edit Profile', edit_user_registration_path %></li>
-                <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
-            </ul>
+              <% if !current_user %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li> <%= link_to 'Sign In', user_session_path %> </li>
+                  <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
+                </ul>
+              <% else %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li> <%= link_to 'Admin', products_path %> </li>
+                  <li> <%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                  <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
+                </ul>
+              <% end %>
+              
           </div>
         </div>
       </nav>
