@@ -1,29 +1,92 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+
+    <div class="login-container">
+
+    <div class="row">  
+      <h2  class="col-md-12 text-center">Sign up</h2>
+    </div>
+
+    <div class="row">
+      <span class="col-md-12"><hr></span>
+    </div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="row">
+
+    <div class="field">
+      <span class="col-md-5 text-right">
+        <%= f.label :email %><br>
+      </span>
+      <span class="col-md-7 text-left">
+      <%= f.email_field :email, autofocus: true %>
+      </span>
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="row"><br></div>
+
+  <div class="field row">
+    <span class="col-md-5 text-right">
+      <%= f.label :password %>
+    </span>
+    <span class="col-md-7 text-left">
+      <%= f.password_field :password, autocomplete: "off" %>
+    </span>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="row">
+    <span class="col-md-5"><br></span>
+    <span class="col-md-7 text-left">
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+    </span>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="row"><br></div>
+
+  
+  <div class="row">
+
+    <div class="field">
+      <span class="col-md-5 text-right">
+        <%= f.label :password_confirmation %><br>
+      </span>
+      <span class="col-md-7 text-left">
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </span>
+    </div>
+
   </div>
+
+  <div class="row"><br></div>
+
+
+  <div class="actions row">
+    <span class="col-md-12 text-center">
+      <%= f.submit "Sign up", class: "btn btn-danger" %>
+    </span>
+  </div>
+
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="row">
+  <span class="col-md-12"><hr></span>
+</div>
+
+<div class="row">
+  <span class="col-md-12 text-center">
+    <%= render "devise/shared/links" %>
+  </span>
+</div>
+
+</div> <!-- end of login-container -->
+
+  <div class="col-md-3"></div>
+</div>
+
