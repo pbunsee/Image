@@ -8,6 +8,9 @@ class PagesController < ApplicationController
   def about
   end
 
-  def contact
+  def storefront
+    @products = Product.order(params[:sort]).paginate(page: params[:page], per_page: 15)
   end
+
+
 end

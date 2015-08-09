@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'pages/about'
 
+  get 'pages/storefront'
+
 
   resources "contacts", only: [:new, :create]
   

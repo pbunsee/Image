@@ -44,6 +44,23 @@
       <span class="col-md-4"></span>
     </div>
 
+    </div>
+
+    <div class="row">
+
+      <span class="col-md-4"></span>
+
+      <span class="col-md-2">
+        <%= f.label 'Brand:' %>
+      </span>
+
+      <span class="col-md-2">
+        <%= f.text_field :brand, placeholder: 'Brand' %>
+      </span>
+      <span class="col-md-4"></span>
+
+    </div>
+
     <div class="row">
 
       <span class="col-md-4"></span>
@@ -73,7 +90,6 @@
       <%= f.text_field :size, placeholder: 'Size' %>
       </span>
 
-      <span class="col-md-4"></span>
 
     </div>
 
@@ -82,15 +98,17 @@
       <span class="col-md-4"></span>
 
       <span class="col-md-2">
-        <%= f.label 'Brand:' %>
+        <%= f.label :quantity_in_stock %>
       </span>
 
       <span class="col-md-2">
-        <%= f.text_field :brand, placeholder: 'Brand' %>
+        <%= f.number_field :quantity_in_stock %>
       </span>
       <span class="col-md-4"></span>
 
     </div>
+
+      <span class="col-md-4"></span>
 
     <div class="row">
 

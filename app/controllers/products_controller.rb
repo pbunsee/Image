@@ -51,6 +51,7 @@ class ProductsController < ApplicationController
                                       :size,
                                       :description,
                                       :brand,
+                                      :quantity_in_stock,
                                       :image)
     end
 

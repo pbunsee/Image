@@ -15,31 +15,48 @@
   </div>
 
   
-    <div class="row">
+  <div class="row">
 
-      <span class="col-md-5"></span>
+    <span class="col-md-5"></span>
 
-      <span class="col-md-2 text-center">
-          <%= f.label 'Product Image:' %>
-      </span>
+    <span class="col-md-2 text-center">
+        <%= f.label 'Product Image:' %>
+    </span>
 
-      <span class="col-md-5"></span>
+    <span class="col-md-5"></span>
 
-    </div>
+  </div>
 
-    <div class="row">
+  <div class="row">
 
-      <span class="col-md-4"></span>
+    <span class="col-md-4"></span>
 
-      <span class="col-md-4 text-center">
-        <%= image_tag @product.image.url(:medium) %>
-      </span>
+    <span class="col-md-4 text-center">
+      <%= image_tag @product.image.url(:medium) %>
+    </span>
 
-      <span class="col-md-4"></span>
+    <span class="col-md-4"></span>
 
-    </div>
+  </div>
 
 
+  <div class="row">
+
+    <span class="col-md-4"></span>
+
+    <span class="col-md-2">
+      <%= f.label :Image %>
+    </span>
+
+    <span class="col-md-2 text-center">
+
+       <%= f.file_field :image %>
+    </span>
+
+    <span class="col-md-4">
+    </span>
+
+  </div>
 
   <div class="row">
 
@@ -68,10 +85,27 @@
         <%= f.text_field :name, placeholder: 'Product Name' %>
       </span>
 
-      <span class="col-md-4">
-      </span>
+      <span class="col-md-4"></span>
 
     </div>
+
+
+    <div class="row">
+
+      <span class="col-md-4"></span>
+
+      <span class="col-md-2"> 
+        <%= f.label 'Brand:' %>
+      </span>
+
+      <span class="col-md-2">    
+        <%= f.text_field :brand, placeholder: 'Brand' %>
+      </span>
+
+      <span class="col-md-4"></span>
+
+    </div>
+
 
     <div class="row">
 
@@ -119,14 +153,13 @@
 
       <span class="col-md-4"></span>
 
-      <span class="col-md-2"> 
-        <%= f.label 'Brand:' %>
+      <span class="col-md-2">
+        <%= f.label 'Stock:' %>
       </span>
 
-      <span class="col-md-2">    
-        <%= f.text_field :brand, placeholder: 'Brand' %>
+      <span class="col-md-2">
+        <%= f.number_field :quantity_in_stock %>
       </span>
-
       <span class="col-md-4"></span>
 
     </div>
@@ -140,19 +173,6 @@
       </span>
 
       <span class="col-md-4"></span>
-
-    </div>
-
-    <div class="row">
-
-      <span class="col-md-5"></span>
-
-      <span class="col-md-3 text-center">
-         <%= f.file_field :image %>
-      </span>
-
-      <span class="col-md-4">
-      </span>
 
     </div>
 
