@@ -2,6 +2,8 @@
 
   <h2>Our Products</h2>
 
+    <%= will_paginate @products %><br>
+
   <% @products.each do |product| %>
 
   <div class="storefront-product">
@@ -37,9 +39,6 @@
         <span style="color:red; font-weight:bold">Out of stock</span>
         <%end%>
     </p>
-
-
-    
 
     </div>
 
