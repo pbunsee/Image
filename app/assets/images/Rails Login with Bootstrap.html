@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:3000/pages/home -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Rails Login with Bootstrap</title>
+    
+
+    <script src="./Rails Login with Bootstrap_files/jquery.min.js"></script>
+
+    <script src="./Rails Login with Bootstrap_files/underscore-min.js"></script>
+
+    <!-- Bootstrap Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
+
+    <!-- Bootstrap Latest compiled and minified JavaScript -->
+    <script src="./Rails Login with Bootstrap_files/bootstrap.min.js"></script>
+
+    <!-- JSON Library to serialize from Object to JSON and vice versa -->
+    <script src="./Rails Login with Bootstrap_files/json3.js"></script>
+
+    <!-- Custom stylesheet to override Bootstrap styling -->
+    <link rel="stylesheet" type="text/css" href="./Rails Login with Bootstrap_files/custom.css">
+    <script type="text/javascript" src="./Rails Login with Bootstrap_files/jquery.min(1).js"></script>
+
+
+
+    <!-- Bootstrap 3 is designed to be responsive to mobile devices. 
+         Mobile-first styles are part of the core framework.
+         To ensure proper rendering and touch zooming, add the following <meta> tag inside the <head> element -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" media="all" href="http://localhost:3000/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/contacts.self-54ee2fec6fd7faa2725c22479f1a07e0c664fc59c5ea0d60037f409c146c0600.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/custom.self-8bcbc26d448effadb1d739aba0a35e330e0dec2f8a9432e8a3c374f3db9f55bc.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/inventories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/inventory.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/main.self-9693c6f6eb26f0db935f57816ff4269db5fe8b6e6dd24187e92a147d57b72b00.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/order_item.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/order_items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/orders.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/pages.self-152f5d7e39d790009538737ae6d8bc9499fb4f480cfcd6c2dcd2035252aec3d3.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/application.self-ef71b1418dcf9faad186a77194d47ed55decb8abeb630c31799a771c19aac341.css?body=1" data-turbolinks-track="true">
+    <script src="./Rails Login with Bootstrap_files/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/cookies.self-a639bec69e816e04b2a8e16dd137123c7efc9d99691cf9cc5905c9bb6e592c78.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/cart.self-d490a5e7002139b6f4f418a91a23a694b42087015072c3451de3a89896b3f59a.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/carts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/inventories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/inventory.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/order_item.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/order_items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/orders.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./Rails Login with Bootstrap_files/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js" data-turbolinks-track="true"></script>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="OP5q+b078cq7l2j9/UDhE2W4fMu4YNyKbBFY1L2foCryaeOoWwmye/99SMjIPBU5Uz10oBY+/83EugsnHWMs8Q==">
+  </head>
+  <body>
+    <div class="container">
+    <header>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+        <div class="navbar-header">
+         <a class="navbar-brand rounded-corners" href="./Rails Login with Bootstrap_files/Rails Login with Bootstrap.html"><img src="./Rails Login with Bootstrap_files/logo.jpg" width="100"></a>
+      </div>
+
+    <div>
+      <ul class="nav navbar-nav">
+
+        <li><a href="http://localhost:3000/pages/storefront">All Products</a> </li>
+  
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="http://localhost:3000/pages/pages/about">About Us
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://localhost:3000/pages/about">Frequently Asked Questions</a> </li>
+            <li><a href="http://localhost:3000/contacts/new">Contact Us</a></li> 
+            <li><a href="http://localhost:3000/pages/about">Blog</a> </li>
+          </ul>
+        </li>
+      </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li> <a href="http://localhost:3000/products">Admin</a> </li>
+          <li> <a href="http://localhost:3000/users/edit">Edit Profile</a></li>
+          <li> <a rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">Sign Out</a>
+          </li><li> <a href="http://localhost:3000/charges/new">Checkout</a></li>
+          
+        </ul>
+        
+    </div>
+  </div>
+</nav>
+    </header>
+
+   <div class="flash">
+      
+    </div>
+
+      <div id="myCarousel" class="carousel slide">
+
+  <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="./Rails Login with Bootstrap_files/consign.jpg" alt="altinfo" class="img-responsive">
+        <div class="carousel-caption">
+          
+       
+        </div>
+      </div>
+      
+       <div class="item">
+         <img src="./Rails Login with Bootstrap_files/consign.jpg" alt="altinfo" class="img-responsive">
+         <div class="carousel-caption">
+              <h1>ABOUT US</h1>
+              <p> IMAGE is the first sneaker consignment shop to open in Queens, New York. We are located in the heart of Queens, Main St Flushing. We carry many hard to find and limited sneakers you will not find anywhere else. We offer an 85/15-consignment rate, so prices stay low. We are the place to bring your sneakers if you have trouble selling them or just don't want to deal with the hassle. We also offer trade-ins, buy-backs and credit for certain items. So if you haven't checked us out yet be sure to stop by and pick up some sneakers at great prices!
+              </p>
+           
+          <p></p>
+         </div>
+      </div>
+
+      <div class="item">
+         <img src="./Rails Login with Bootstrap_files/image2.jpg" alt="altinfo" class="img-responsive">
+         <div class="carousel-caption">
+         <p>
+          135-16 Northern Blvd.
+          <br>Flushing, NY 11354
+
+          <br>Mon-Sat 1-8pm
+          <br>Sun 1-7pm
+
+   
+         </p></div>
+      </div>
+
+      <div class="item">
+         <img src="./Rails Login with Bootstrap_files/pink.jpg" alt="altinfo" class="img-responsive">
+         <div class="carousel-caption">
+           
+         </div>
+      </div>
+
+
+    </div>
+
+    <a class="carousel-control left" href="http://localhost:3000/pages/home#myCarousel" data-slide="prev">
+      <span class="icon-prev"></span>
+    </a>
+
+    <a class="carousel-control right" href="http://localhost:3000/pages/home#myCarousel" data-slide="next">
+      <span class="icon-next"></span>
+    </a>
+
+  </div>
+
+  <script> $('#myCarousel').carousel({ interval: 1000 }) </script>
+
+    
+  </div> <!-- end of container div -->
+
+  <div id="cart">
+    <h2>Cart</h2>
+    <div id="cart-line-items">
+
+    </div>
+  </div>
+
+
+
+             
+
+<script src="./Rails Login with Bootstrap_files/livereload.js"></script></body></html>

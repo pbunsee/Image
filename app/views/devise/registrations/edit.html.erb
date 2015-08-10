@@ -1,50 +1,130 @@
 <div class="row">
-      <div class="col-md-2"></div>
-  <div class="col-md-8">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
     <div class="login-container">
 
-      <h2>Edit <%= current_user.email %></h2>
+    <div class="row">
+
+      <span class="col-md-12 title-head">Edit <%= current_user.email %></span>
+
+    </div>
+
+      <div class="row">
+
+        <span class="col-md-4 text-center">
+        </span>
+
+        <span class="col-md-4 text-center">
+          <hr>
+        </span>
+
+        <span class="col-md-4 text-center">
+        </span>
+
+      </div>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
 
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true %>
+        <div class="row">
+
+          <span class="col-md-2"></span>
+          <div class="col-md-4 field text-left">
+            <%= f.label :email %></div>
+          <div class="col-md-3 field text-left"> 
+            <%= f.email_field :email, autofocus: true %></div>
+          <span class="col-md-3"></span>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
         </div>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
+        <div class"row"><br></div>
 
-        <div class="field">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, autocomplete: "off" %>
+        <div class="row">
+
+          <span class="col-md-2"></span>
+          <div class="col-md-4 field text-left">
+            <%= f.label :password %> </div>
+          <div class="col-md-3 field text-left"> 
+            <%= f.password_field :password, autocomplete: "off" %></div>
+          <span class="col-md-3"></span>
         </div>
 
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <div class"row">
+          <span class="col-md-12 text-center">
+          <i>(Leave blank if you don't want to change it)</i></span>
         </div>
 
-        <div class="field">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off" %>
+        <div class"row"><br></div>
+        <div class"row"><br></div>
+
+        <div class="row">
+
+          <span class="col-md-2"></span>
+          <div class="col-md-4 field text-left">
+            <%= f.label :password_confirmation %></div>
+          <div class="col-md-3 field text-left"> 
+            <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+          <span class="col-md-3"></span>
+          </div>
+
+        <div class="row"><br></div>
+
+        <div class="row">
+
+          <span class="col-md-2"></span>
+          <div class="col-md-4 field text-left">
+            <%= f.label :current_password %> </div>
+          <div class="col-md-3 field text-left">
+            <%= f.password_field :current_password, autocomplete: "off" %></div>
+          <span class="col-md-3"></span>
         </div>
 
-        <div class="actions">
-          <%= f.submit "Update" %>
+        <div class="row">
+          <span class="col-md-12 text-center"
+          <i>(Need your current password to confirm your changes)</i></span>
+        </div>  
+
+        <div class="row"><br></div>
+
+        <div class="row actions text-center">
+          <%= f.submit "Update", class: "btn btn-danger"  %>
         </div>
       <% end %>
 
-      <h3>Cancel my account</h3>
+      <div class="row">
 
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <span class="col-md-4 text-center">
+        </span>
 
-      <%= link_to "Back", :back %>
+        <span class="col-md-4 text-center">
+          <hr>
+        </span>
+
+        <span class="col-md-4 text-center">
+        </span>
+
+      </div>
+
+      <div class="row">
+
+        <span class="col-md-3"></span>
+
+        <span class="col-md-6 text-center">  
+
+        <h4>Cancel My Account</h4>
+
+        <%= button_to "Close Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , class: "btn btn-danger"  %>
+
+        <%= link_to "Back", :back %></span>
+        <span class="col-md-3"></span>
+      </div>
 
     </div> <!-- end of login-container -->
 
   </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-3"></div>
 </div>
