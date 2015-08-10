@@ -5,3 +5,8 @@
 textarea {
   width: 500px; height: 150px;
 }
+
+.thumb {
+	width: 100px;
+	height: 100px;
+}
