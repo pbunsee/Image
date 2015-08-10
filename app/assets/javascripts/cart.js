@@ -6,9 +6,11 @@ function setCookie(obj, cookieName) {
 
 function getCookie(cookieName) {
   var tempStr = Cookies.get(cookieName);
-  var objName = JSON.parse(tempStr);
-  var arrCart = objName;
-  return arrCart;
+  if ( typeof tempStr != "undefined" ) {
+    var objName = JSON.parse(tempStr);
+    var arrCart = objName;
+    return arrCart;
+  }
 }
 
 function removeCookie(){

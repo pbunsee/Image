@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails Login with Bootstrap</title>
+    <title>Image NY</title>
     <%= include_gon(watch: true) %>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- JSON Library to serialize from Object to JSON and vice versa -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.js"></script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
 
@@ -16,14 +20,8 @@
     <!-- Bootstrap Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <!-- Optional theme -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
-
     <!-- Bootstrap Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <!-- JSON Library to serialize from Object to JSON and vice versa -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.js"></script>
 
     <!-- Custom stylesheet to override Bootstrap styling -->
     <link rel="stylesheet" type="text/css" href="/assets/custom.css">
@@ -42,26 +40,58 @@
     <header>
       <nav class="navbar navbar-inverse navbar-custom">
         <div class="container-fluid">
-         <div class="navbar-header">
-           <a class="navbar-brand" href= "/pages/home"><img src="/assets/logo.jpg" width="100"></a>
-          </div>
-          <div>
-            <ul class="nav navbar-nav">
-              <li> <%= link_to 'Products', products_path %> </li>
-              <li> <%= link_to 'About', pages_about_path %> </li>
-              <li> <%= link_to 'Contact', new_contact_path %> </li>
-            </ul>
+        <div class="navbar-header">
+         <a class="navbar-brand" href= "/pages/home"><img src="/assets/logo.jpg" width="100"></a>
+      </div>
 
+    <div>
+      <ul class="nav navbar-nav navbar-left">
+         <li> <%= link_to 'Storefront', pages_storefront_path %> </li>
+      </ul>
 
-              <ul class="nav navbar-nav navbar-right">
-                 <li> <%= link_to 'Sign In', user_session_path %> </li>
-                <li>  <%= link_to 'Sign Up', new_user_registration_path %> </li>
-                <li> <%= link_to 'Edit Profile', edit_user_registration_path %></li>
-                <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <ul class="nav navbar-nav">
+      
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Brand', products_path %> </li>
+            <li><%= link_to 'Size', new_product_path %></li> 
+             <li><%= link_to 'Price', new_product_path %> </li>
+          </ul>
+        </li>
+        
+        <li class="dropdown2">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="pages/about">About Us
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Frequently Asked Questions', pages_about_path %> </li>
+            <li><%= link_to 'Contact Us', new_contact_path %></li> 
+             <li><%= link_to 'Blog', pages_about_path %> </li>
+          </ul>
+        </li>
+        
+        <% if !current_user %>
+           <ul class="nav navbar-nav navbar-right">
+             <li> <%= link_to 'Sign In', user_session_path %> </li>
+             <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
+             <li> <%= link_to 'Checkout', new_charge_path %></li>
+           </ul>
+        <% else %>
+          <ul class="nav navbar-nav navbar-right">
+            <li> <%= link_to 'Admin', products_path %> </li>
+            <li> <%= link_to 'Edit Profile', edit_user_registration_path %></li>
+            <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            <li> <%= link_to 'Checkout', new_charge_path %></li>
+            </li>
+          </ul>
+              <% end %>
+              
+        
+    </div>
+  </div>
+</nav>
+>>>>>>> Stashed changes
     </header>
 
    <div class="flash">
@@ -179,7 +209,6 @@
     <hr/>
     <!-- <a class="btn btn-info btn-block" href="#product/<- id %>/edit">Edit Product</a> -->
   </script>
-
 
   </body>           
 </html>

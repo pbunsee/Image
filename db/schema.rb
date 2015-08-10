@@ -49,13 +49,13 @@ ActiveRecord::Schema.define(version: 20150805155216) do
     t.decimal  "price",              precision: 12, scale: 3
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.string   "size"
+    t.string   "description"
+    t.string   "brand"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "size"
-    t.string   "description"
-    t.string   "brand"
     t.integer  "quantity_in_stock"
   end
 
