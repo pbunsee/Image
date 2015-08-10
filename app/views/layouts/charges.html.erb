@@ -1,9 +1,87 @@
+
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <title>Rails Login with Bootstrap</title>
+    <%= include_gon(watch: true) %>
 
-</head>
-<body>
-  <%= yield %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+
+    <!-- Bootstrap Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
+
+    <!-- Bootstrap Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- JSON Library to serialize from Object to JSON and vice versa -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.js"></script>
+
+    <!-- Custom stylesheet to override Bootstrap styling -->
+    <link rel="stylesheet" type="text/css" href="/assets/custom.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="/assets/charges.css">
+
+    <!-- Bootstrap 3 is designed to be responsive to mobile devices. 
+         Mobile-first styles are part of the core framework.
+         To ensure proper rendering and touch zooming, add the following <meta> tag inside the <head> element -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+    <header>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+        <div class="navbar-header">
+         <a class="navbar-brand" href= "/pages/home"><img src="/assets/logo.jpg" width="100" class="rounded-corners"></a>
+      </div>
+
+    <div>
+      <ul class="nav navbar-nav">
+
+        <li><%= link_to 'All Products', pages_storefront_path %> </li>
+  
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="pages/about">About Us
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Frequently Asked Questions', pages_about_path %> </li>
+            <li><%= link_to 'Contact Us', new_contact_path %></li> 
+            <li><%= link_to 'Blog', pages_about_path %> </li>
+          </ul>
+        </li>
+      </ul>
+
+      <% if !current_user %>
+        <ul class="nav navbar-nav navbar-right">
+          <li> <%= link_to 'Log In', user_session_path %> </li>
+          <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
+          <li> <%= link_to 'Checkout', new_charge_path %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li> <%= link_to 'Admin', products_path %> </li>
+          <li> <%= link_to 'Edit Profile', edit_user_registration_path %></li>
+          <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+          <li> <%= link_to 'Checkout', new_charge_path %></li>
+          </li>
+        </ul>
+
+
+      <% end %>
+        
+    </div>
+  </div>
+</nav>
+<%= yield %>
+
 </body>
-</html>
