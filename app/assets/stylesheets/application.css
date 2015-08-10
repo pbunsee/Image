@@ -27,3 +27,11 @@
   font-weight: bolder;
   text-align: center;
 }
+
+.rounded-corners {
+  border-radius: 10px;
+}
+
+.dialog-tab {
+  background-color: red;
+}
