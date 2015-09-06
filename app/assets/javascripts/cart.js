@@ -1,64 +1,8 @@
-function setCookie(obj, cookieName) {
-  console.dir(obj);
-  var tempStr = JSON.stringify(obj);
-  Cookies.set(cookieName, tempStr);
-}
-
-function getCookie(cookieName) {
-  var tempStr = Cookies.get(cookieName);
-  if ( typeof tempStr != "undefined" ) {
-    var objName = JSON.parse(tempStr);
-    var arrCart = objName;
-    return arrCart;
-  }
-}
-
-function removeCookie(){
-  //erase the cookie if it hasn't already expired
-}
-
-function addItem(line_item){
-  console.log("adding item to cart");
-  addToCart(line_item);
-  setCookie(arrCart, 'cart');
-  console.dir(arrCart);
-}
-
-function getItem(){
-  //console.log("getting item from cart");
-  //var line_item = getCookie('lineItemCookie');
-  //console.dir(line_item);
-  // if no cart object have to get the cart cookie, convert to object and then navigate the object to find the line_item object
-}
-
-function removeItem(){
-  console.log("removing item from cart");
-  //removeCookie('lineItemCookie', line_item);
-  // if no cart object have to get the cart cookie, convert to object and then navigate the object to find the line_item object
-  removeFromCart(line_item);
-}
-
-function getCart() {
-  console.log("Getting the cart");
-  if ( typeof arrCart == "undefined" ) {
-    var cartFromCookie = getCookie('cart');
-    if ( typeof cartFromCookie == "undefined" ) {
-      console.log("cart cookie not found");
-      console.log("New cart");
-      var newCart  = [];
-      return newCart;
-      console.dir(newCart);
-    } else
-    {
-      return cartFromCookie;
-      console.log("cartFromCookie");
-      console.dir(cartFromCookie);
-    }
-  } else
-  {
-    return arrCart;
-    console.log("arrCart js object from browser cache");
-    console.dir(arrCart);
+function supports_localStorage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
   }
 }
 
@@ -95,44 +39,36 @@ function addToCart(objLineItem){
   console.dir(product_master);
 }
   
-function removeFromCart(objLineItem){
-  console.log("Removing line item from cart");
-  var atIndex = arrCart.indexOf(objLineItem);
-  arrCart.splice(atIndex, 1);
-  console.log("hey 5");
-  console.dir(arrCart);
-}
-
-function emptyCart(){
-  console.log("Emptying cart");
-}
-
-function checkout(){
-  console.log("Checking out cart");
-}
-
-function incrementQty(){
-  console.log("Incrementing product inventory");
-}
-
-function decrementQty(){
-  console.log("Decrementing product inventory");
-}
-
-// set the cart as global variable
+// Global variables
 console.log("Init global variables");
-var arrCart = getCart();
-console.log("cart init");
-console.dir(arrCart);
+var order = [];
 
 $(document).on('ready page:load',function(){
   console.log('ready!');
 
-  //listen for onclick event on 'Add to Cart' link
-  $('.add-btn').click(function(){
-    console.log( "Handler for Add product into cart .click() called." );
+  if ( supports_localStorage() )
+  { console.log("This browser supports HTML5 localStorage"); }
+  else
+  { console.log("localStorage is not supported on this browser!!"); }
 
-    // get an associative array of just the values from the show product form
+  $('.add-btn').click(function(){
+    console.log( "Handler for Add product into cart called." );
+
+    //localStorage stores the data as string - JSON.parse to convert from string to object
+    if ( localStorage.getItem("cart") === null )
+      { 
+      console.log("Cart does not exist in localStorage. Creating a new cart...");
+      } 
+    else
+      {
+      console.log("Cart from localStorage.");
+      var tempCart = localStorage.getItem("cart");
+      order = JSON.parse(tempCart);
+      console.log("order from localStorage order");
+      console.dir(order);
+      }
+
+    // get an array of the values scraped from the show product form
     var $inputs = $('.edit_product :input');
     var productValues = {};
     $inputs.each(function() {
@@ -141,43 +77,92 @@ $(document).on('ready page:load',function(){
       tempStr = tempStr.replace("]","");
       if (!tempStr || tempStr == "" || tempStr == '""') { 
         console.log("don't want this key/val pair!"); 
-      } else
+      } 
+      else
       { 
-        if ( tempStr == "id" || tempStr == "size" ) {
-          productValues[tempStr] = $(this).val() 
-        }
+        productValues[tempStr] = $(this).val() 
       };
     });
-    console.log("grabbed the form vals");
+
+    delete productValues["description"];
+    productValues["qty"] = 1;
+
+    console.log("product - stripped out description");
     console.dir(productValues);
 
-    // construct a new object to store only product.id and product size
-    var core_line_item = _.map(productValues, function(key, val) {
-                                                 return [val, key] ;
-                                              }
-                              );
+    order.push(productValues);
 
-    core_line_item = _.flatten(core_line_item);
-    console.log("core_line_item");
-    console.dir(core_line_item);
+    console.log("order ");
+    console.dir(order);
 
-    // persist the core_line_item to cookie
-    addItem(core_line_item);
+    localStorage.setItem("cart", JSON.stringify(order));
 
-    //getItem();
+    function calcLineItemTotal(){
+      var line_total = _.map(order,function(d){ 
+                         console.log("d: ");
+                         console.dir(d);
+                         console.dir(d.price);
+                         console.dir(parseFloat(d.price).toFixed(2));
+                         console.dir(d.qty);
+                         console.dir(parseInt(d.qty));
+                         return (parseFloat(d.price).toFixed(2) * parseInt(d.qty)); });
 
-    getCookie('cart');
-    console.dir(arrCart);
+      console.dir(line_total);
+      return line_total;
+      //var numItems = _.reduce(_.each(order,function(memo, num){ return memo + (num.price * 1); },0));
+                       //return memo + (parseFloat(num.price).toFixed(2) * parseInt(num.qty)); }, 0);
+    }
 
-    // create enriched cart
-    // create cart facade - dump the arrCart object into div cart-line-items on layout
-    $('#cart-line-items').html('<p>oh</p>');
+    function listOrder(){
+      //var removeTable = '#orderList';
+      //$(removeTable).remove();
+
+      // Display line items in cart div
+      var dataTable = $("<table></table>").attr('id','orderList');
+      $('#cart').append( $(dataTable) );
+      $(dataTable).addClass("table table-striped table-bordered table-hover table-condensed table-responsive");
+      $(dataTable).append( $("<thead>").append( $("<th>").append("Brand"))
+                                       .append( $("<th>").append("Name"))
+                                       .append( $("<th>").append("Size"))
+                                       .append( $("<th>").append("Unit Price")) 
+                                       .append( $("<th>").append("Qty")) 
+                                       .append( $("<th>").append("Total")) 
+                         );
+ 
+      $(dataTable).append( $('<tr>') );
+
+      //dataSet = _.sortBy(dataSet,function(d){ return -d.value; });
+      order.map(function(d,i){
+                           var trow = $(dataTable).find('tbody tr:last');
+                           var tcell = $("<td>");
+                           //var parseKey = handleDataType(d.key);
+                           //$(tcell).html(parseKey);
+                           $(tcell).html(d["brand"]);
+                           $(tcell).appendTo($(trow));
+                           var tcell = $("<td>");
+                           $(tcell).html(d["name"]);
+                           $(tcell).appendTo($(trow));
+                           var tcell = $("<td>");
+                           $(tcell).html(d["size"]);
+                           $(tcell).appendTo($(trow));
+                           var tcell = $("<td>");
+                           $(tcell).html('$ ' + parseFloat(d["price"]).toFixed(2));
+                           $(tcell).appendTo($(trow));
+                           var tcell = $("<td>");
+                           $(tcell).html(parseInt(d["qty"]));
+                           $(tcell).appendTo($(trow));
+                           var tcell = $("<td>");
+                           var lineTotalPrice = parseFloat(d["price"]).toFixed(2) * parseInt(d["qty"]);
+                           $(tcell).html('$ ' + lineTotalPrice);
+                           $(tcell).appendTo($(trow));
+                           $(dataTable).find('tbody tr:last').after($(trow));
+                           $(dataTable).append( $('<tr>') );
+                         } );
 
 
-    console.log(_.size(arrCart));
-    //_.reduce(arrCart.item,function(memo, num){ return memo + (num.price * num.qty); },0);
-    //var numItems = _.reduce(_.each(arrCart,function(memo, num){ return memo + (num.price * 1); },0));
-    //console.dir(numItems);
+       //$('#cart-line-items').append( $(line) );
+    }
+    listOrder();
 
   });
 });

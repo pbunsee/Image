@@ -25,5 +25,13 @@ header {
 }
 
 #cart {
-  display: none;
+  display: block;
+   width: auto;
 }
+
+#orderList {
+   padding: 2px;
+   width: auto;
+   display: block;
+}
+
